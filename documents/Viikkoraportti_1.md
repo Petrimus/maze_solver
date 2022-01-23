@@ -1,4 +1,4 @@
-## Viikkoraportti 1
+# Viikkoraportti 1
 ## Viikon tekemiset
 Olen tällä viikolla valinnut aiheen, joka tulee käsittelemään labyrinttien luontia ja niiden ratkaisemista. Olen tehnyt alustavan määrittelydokumentin. Se on todella alustava, koska en ole tehtävän ongelmaan oikein perehtynyt sen enempää. Haluan kuitenkin tehdä projektin verkoista ja poluista, koska uskon siitä olevan tulevaisuudessa hyötyä. 
 
