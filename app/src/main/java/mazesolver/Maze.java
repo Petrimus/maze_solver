@@ -2,7 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
+/**
+ * Representation of the maze.
+ * <p>This class is the maze</p>
+ * @author Petri Palmu
+ */
 package mazesolver;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -36,5 +44,11 @@ public class Maze {
             }
         }
     }
-
+    
+    public ArrayList<Coordinate> findDeadends() {
+        
+        return null;
+    }
+    
 }
+
