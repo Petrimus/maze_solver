@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class Maze {
 
-    int[][] maze
+    private final int[][] maze
             = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1},
             {1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1},
@@ -29,7 +29,6 @@ public class Maze {
             {1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1},
             {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-
             };
 
     public void drawMaze() {
@@ -38,6 +37,8 @@ public class Maze {
             for (int j = 0; j < maze1.length; j++) {
                 if (maze1[j] == 1) {
                     System.out.print("#");
+                } else if (maze1[j] == 2) {
+                    System.out.print("*");
                 } else {
                     System.out.print(" ");
                 }
@@ -45,10 +46,18 @@ public class Maze {
         }
     }
     
-    public ArrayList<Coordinate> findDeadends() {
-        
-        return null;
+    public int[][] getMazeArray() {
+        return this.maze;
     }
+    
+    public int getMazeLength() {
+        return this.maze[0].length;
+    }
+    
+    public int getMazeHeight() {
+        return this.maze.length;
+    }
+    
     
 }
 

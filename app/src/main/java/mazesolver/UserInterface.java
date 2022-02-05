@@ -29,20 +29,27 @@ public class UserInterface {
         while (true) {
             System.out.println("Anna komento: ");
             System.out.println("1 - tulosta nimi");
-            System.out.println("3 - piirrä labyrintti");
-            System.out.println("2 - lopeta");
+            System.out.println("2 - piirrä labyrintti");
+            System.out.println("3 - ratkaise labyrintti rekursiivisesti");
+            System.out.println("4 - lopeta");
+
             int command = Integer.parseInt(reader.nextLine());
 
             switch (command) {
                 case 1:
                     System.out.println(name);
                     break;
+
                 case 2:
-                    break OUTER;
-                case 3:                        
                     maze.drawMaze();
                     System.out.println("");
-                    break;                            
+                    break;
+                case 3:
+                    RecursiveSolve recSolve = new RecursiveSolve(maze);
+                    recSolve.solve();
+                    break;
+                case 4:
+                    break OUTER;
                 default:
                     System.out.println("Syötä oikea komento");
                     break;
