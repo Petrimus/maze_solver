@@ -13,8 +13,8 @@ public class RecursiveSolve {
     private final int height;
     private int width;
     private int[][] maze; // = new boolean[width][height]; // The maze
-    boolean[][] visited;
-    boolean[][] correctPath;
+    private boolean[][] visited;
+    // private boolean[][] correctPath;
     private int startX, startY;
     private int endX, endY;
 
@@ -22,7 +22,7 @@ public class RecursiveSolve {
         this.height = referenceMaze.getMazeHeight();
         this.width = referenceMaze.getMazeLength();
         this.visited = new boolean[height][width];
-        this.correctPath = new boolean[height][width];
+        // this.correctPath = new boolean[height][width];
         this.maze = Utils.copyMaze(referenceMaze);
         System.out.println(maze[1][1]);
         

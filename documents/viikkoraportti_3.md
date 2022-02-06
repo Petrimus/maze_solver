@@ -14,7 +14,7 @@ En muistanutkaan kuinka hankalaa on työskennellä kaksi uloitteisen taulukon ka
 Ei vielä pahoja tai että olisi jumissa jossain. 
 
 ## Seuraavat toimet
-Seuraava vaihe on testaamisen aloittaminen. Olisin aloittanutkin sen jo, mutta rekursiossa kestikin ajateltua kauemmin. Testeihin olen perehtynyt 2020 MOOC avulla ja se aloitetaan huomenna aamulla. Laitoin myös projektiin mukaan gradlen checkstyle pluginin, mutta se ei toimi. Sen kuntoon laittaminen on ensimmäinen tehtävä.
+Seuraava vaihe on testaamisen aloittaminen. Olisin aloittanutkin sen jo, mutta rekursiossa kestikin ajateltua kauemmin. Testeihin olen perehtynyt 2020 MOOC avulla ja se aloitetaan huomenna aamulla. Laitoin myös projektiin mukaan gradlen checkstyle pluginin. En vielä tunne sen toimintaa, mutta se näyttää ison joukon virheitä, joita ei ole vielä korjattu.
 
 ## Työaika
 Työaikaa on käytetty tällä viikolla 12 tuntia. 
