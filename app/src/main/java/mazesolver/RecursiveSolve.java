@@ -10,14 +10,24 @@ package mazesolver;
  */
 public class RecursiveSolve {
 
-    private final int height;
+    private int height = 0;
     private int width;
     private int[][] maze; // = new boolean[width][height]; // The maze
     private boolean[][] visited;
     // private boolean[][] correctPath;
-    private int startX, startY;
-    private int endX, endY;
+    private int startX;
+    private int startY;
+    private int endX;
+    private int endY;
 
+    /**
+     * Class provides recursive way to a solve maze.
+     * <p>
+     * Recursive maze solver class</p>
+     *
+     * @author Petri Palmu
+     * @param referenceMaze
+     */
     public RecursiveSolve(Maze referenceMaze) {
         this.height = referenceMaze.getMazeHeight();
         this.width = referenceMaze.getMazeLength();
@@ -25,7 +35,7 @@ public class RecursiveSolve {
         // this.correctPath = new boolean[height][width];
         this.maze = Utils.copyMaze(referenceMaze);
         System.out.println(maze[1][1]);
-        
+
     }
 
     public void solve() {
@@ -38,19 +48,19 @@ public class RecursiveSolve {
             System.out.println("");
             System.out.println("solved");
             for (int[] maze1 : this.maze) {
-            System.out.println("");
-            for (int j = 0; j < maze1.length; j++) {
-                if (maze1[j] == 1) {
-                    System.out.print("#");
-                } else if (maze1[j] == 2) {
-                    System.out.print("*");
-                } else {
-                    System.out.print(" ");
+                System.out.println("");
+                for (int j = 0; j < maze1.length; j++) {
+                    if (maze1[j] == 1) {
+                        System.out.print("#");
+                    } else if (maze1[j] == 2) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print(" ");
+                    }
                 }
             }
-        }
             System.out.println("");
-            System.out.println("Time it took to solve was " + (endTime - startTime)/1e9/1000 + "milliseconds");
+            System.out.println("Time it took to solve was " + (endTime - startTime) / 1e9 / 1000 + "milliseconds");
         } else {
             System.out.println("vituiksi meni");
         }
@@ -93,5 +103,9 @@ public class RecursiveSolve {
             }
         }
         return false;
+    }
+
+    public int getHeight() {
+        return this.height;
     }
 }
