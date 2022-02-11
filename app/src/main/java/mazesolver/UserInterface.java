@@ -13,14 +13,15 @@ import java.util.Scanner;
 public class UserInterface {
 
     private final Scanner reader;
+    private final Maze maze = new Maze();
 
     public UserInterface(Scanner reader) {
         this.reader = reader;
     }
 
     public void start() {
-        Maze maze = new Maze();
-
+        
+        RecursiveSolve recSolve = new RecursiveSolve();
         System.out.print("Anna nimesi: ");
         String name = reader.nextLine();
         System.out.println("");
@@ -45,8 +46,8 @@ public class UserInterface {
                     System.out.println("");
                     break;
                 case 3:
-                    RecursiveSolve recSolve = new RecursiveSolve(maze);
-                    recSolve.solve();
+
+                    recSolve.solve(this.maze);
                     break;
                 case 4:
                     break OUTER;

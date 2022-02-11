@@ -10,7 +10,6 @@
  */
 package mazesolver;
 
-import java.util.ArrayList;
 
 /**
  *
