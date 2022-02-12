@@ -16,8 +16,9 @@ plugins {
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
-    mavenCentral()
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
 }
 
 dependencies {
@@ -38,12 +39,12 @@ application {
 
 // tasks.named('test') {
     // Use JUnit Platform for unit tests.
-   //  useJUnitPlatform()
+//   useJUnitPlatform()
 // }
 
-test {
-  useJUnitPlatform()
-}
+// test {
+//  useJUnitPlatform()
+// }
 
 run {
     standardInput = System.in

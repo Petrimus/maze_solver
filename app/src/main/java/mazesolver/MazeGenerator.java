@@ -33,9 +33,9 @@ public class MazeGenerator {
             int nx = cx + dir.dx;
             int ny = cy + dir.dy;
             if (isValid(nx, width) && isValid(ny, height)
-                    && (maze[ny][nx] == 0)) {
-                maze[cy][cx] |= dir.bit;
-                maze[ny][nx] |= dir.opposite.bit;
+                    && (this.maze[ny][nx] == 0)) {
+                this.maze[cy][cx] |= dir.bit;
+                this.maze[ny][nx] |= dir.opposite.bit;
                 generate(ny, nx);
             }
         }
@@ -52,8 +52,8 @@ public class MazeGenerator {
         WEST (8, 0, -1);
         
         private final int bit;
-        private final int dx;
         private final int dy;
+        private final int dx;
         private Direction opposite;
 
         // use the static initializer to resolve forward references
@@ -64,10 +64,10 @@ public class MazeGenerator {
             WEST.opposite = EAST;
         }
 
-        private Direction(int bit, int dx, int dy) {
+        private Direction(int bit, int dy, int dx) {
             this.bit = bit;
-            this.dx = dx;
             this.dy = dy;
+            this.dx = dx;            
         }
     };
 
