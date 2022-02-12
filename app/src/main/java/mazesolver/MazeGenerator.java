@@ -22,10 +22,11 @@ public class MazeGenerator {
         this.height = height;
         this.maze = new int[height][width];
         System.out.println("maze length boo" + this.maze.length);
-        generate(0, 0); 
-       return this.maze;
+        generate(0, 0);
+        printMazeArray();
+        return this.maze;
     }
-    
+
     private void generate(int cy, int cx) {
         Direction[] dirs = Direction.values();
         Collections.shuffle(Arrays.asList(dirs));
@@ -39,18 +40,18 @@ public class MazeGenerator {
                 generate(ny, nx);
             }
         }
-    }  
+    }
 
     private boolean isValid(int v, int upper) {
         return (v >= 0) && (v < upper);
     }
 
     private enum Direction {
-        NORTH (1, -1, 0),
-        SOUTH (2, 1, 0),
-        EAST (4, 0, 1),
-        WEST (8, 0, -1);
-        
+        NORTH(1, -1, 0),
+        SOUTH(2, 1, 0),
+        EAST(4, 0, 1),
+        WEST(8, 0, -1);
+
         private final int bit;
         private final int dy;
         private final int dx;
@@ -67,8 +68,17 @@ public class MazeGenerator {
         private Direction(int bit, int dy, int dx) {
             this.bit = bit;
             this.dy = dy;
-            this.dx = dx;            
+            this.dx = dx;
         }
     };
+
+    private void printMazeArray() {
+        for (int[] maze1 : this.maze) {
+            for (int j = 0; j < this.maze[0].length; j++) {
+                System.out.printf("%5d ", maze1[j]);
+            }
+            System.out.println();
+        }
+    }
 
 }

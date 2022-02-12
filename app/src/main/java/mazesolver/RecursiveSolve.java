@@ -60,7 +60,7 @@ public class RecursiveSolve {
             System.out.println("");
             System.out.println("Time it took to solve was " + (endTime - startTime) / 1e9 * 1000 + "milliseconds");
         } else {
-            System.out.println("vituiksi meni");
+            System.out.println("Pieleen meni");
         }
         System.out.println(" ");
     }
@@ -102,6 +102,44 @@ public class RecursiveSolve {
         }
         return false;
     }
+    
+//    public boolean recursiveSolve(int y, int x) {
+//        if (y == height - 2 && x == width - 2) {
+//            this.maze[y][x] = 2;
+//            return true;
+//        }
+//        if (maze[y][x] == 1 || visited[y][x]) {
+//            return false;
+//        }
+//        // If you are on a wall or already were here
+//        visited[y][x] = true;
+//
+//        if (y != 0) {
+//            if (recursiveSolve(y - 1, x)) {
+//                this.maze[y][x] = 2;
+//                return true;
+//            }
+//        }
+//        if (y != height - 1) {
+//            if (recursiveSolve(y + 1, x)) {
+//                this.maze[y][x] = 2;
+//                return true;
+//            }
+//        }
+//        if (x != 0) {
+//            if (recursiveSolve(y, x - 1)) {
+//                this.maze[y][x] = 2;
+//                return true;
+//            }
+//        }
+//        if (x != width - 1) {
+//            if (recursiveSolve(y, x + 1)) {
+//                this.maze[y][x] = 2;
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     public int getHeight() {
         return this.height;
