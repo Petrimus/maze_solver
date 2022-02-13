@@ -19,34 +19,12 @@ public class Maze {
 
     private Cell[][] maze;
 
-//            = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-//            {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1},
-//            {1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1},
-//            {1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1},
-//            {1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1},
-//            {1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1},
-//            {1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1},
-//            {1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1},
-//            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
-//            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-//            };
     public Maze(Cell[][] maze) {
         this.maze = maze;
     }
 
     public void drawMaze() {
-//        for (int[] maze1 : maze) {
-//            System.out.println("");
-//            for (int j = 0; j < maze1.length; j++) {
-//                if (maze1[j] == 1) {
-//                    System.out.print("#");
-//                } else if (maze1[j] == 2) {
-//                    System.out.print("*");
-//                } else {
-//                    System.out.print(" ");
-//                }
-//            }
-//        }
+//       
         int height = maze.length;
         int width = maze[0].length;
         // System.out.println("+   ");

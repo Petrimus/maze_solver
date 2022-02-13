@@ -29,17 +29,22 @@ public class RecursiveSolve {
      * @author Petri Palmu
      * @param referenceMaze
      */
-    public RecursiveSolve(Maze referenceMaze) {
+//    public RecursiveSolve(Maze referenceMaze) {
+//        this.height = referenceMaze.getMazeHeight();
+//        this.width = referenceMaze.getMazeLength();
+//        this.visited = new boolean[height][width];
+//        this.maze = referenceMaze.getMazeArray();
+//        this.referenceMaze = referenceMaze;
+//        // this.maze = Utils.copyMaze(referenceMaze);
+//
+//    }
+
+    public void solve(Maze referenceMaze) {
         this.height = referenceMaze.getMazeHeight();
         this.width = referenceMaze.getMazeLength();
         this.visited = new boolean[height][width];
         this.maze = referenceMaze.getMazeArray();
         this.referenceMaze = referenceMaze;
-        // this.maze = Utils.copyMaze(referenceMaze);
-
-    }
-
-    public void solve() {
         long startTime = System.nanoTime();
         int startX = 0;
         int startY = 0;

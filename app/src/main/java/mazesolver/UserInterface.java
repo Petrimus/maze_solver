@@ -22,8 +22,7 @@ public class UserInterface {
     }
 
     public void start() {
-
-        RecursiveSolve recSolve = new RecursiveSolve(this.maze);
+        RecursiveSolve recSolve = new RecursiveSolve();
         System.out.print("Anna nimesi: ");
         String name = reader.nextLine();
         System.out.println("");
@@ -53,7 +52,7 @@ public class UserInterface {
                     break;
 
                 case 4:
-                    recSolve.solve();
+                    recSolve.solve(this.maze);
                     break;
 
                 case 5:
