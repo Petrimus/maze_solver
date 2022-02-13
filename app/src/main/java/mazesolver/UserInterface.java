@@ -13,13 +13,11 @@ import java.util.Scanner;
 public class UserInterface {
 
     private final Scanner reader;
-    private Maze maze;
-    private int[][] solvable;
+    private Maze maze;    
     private final MazeGenerator generator = new MazeGenerator();
 
     public UserInterface(Scanner reader) {
-        this.maze = new Maze(generator.generateMaze(10, 10));
-        this.solvable = solvableMaze(this.maze.getMazeArray());
+        this.maze = new Maze(generator.generateMaze(10, 10));        
         this.reader = reader;
     }
 
@@ -47,8 +45,7 @@ public class UserInterface {
                     break;
 
                 case 2:
-                    this.maze = optionGeneratteMaze();
-                    this.solvable = solvableMaze(this.maze.getMazeArray());
+                    this.maze = optionGeneratteMaze();                   
 
                 case 3:
                     this.maze.drawMaze();

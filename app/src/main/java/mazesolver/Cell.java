@@ -12,7 +12,8 @@ public class Cell {
     private boolean north = false;
     private boolean south = false;
     private boolean west = false;
-    private boolean east =false;
+    private boolean east = false;
+    private boolean onThePath = false;
     
     public Cell() {
         
@@ -48,11 +49,53 @@ public class Cell {
     
     @Override
     public String toString() {
-        char northx = this.north ? 't' : 'f';
-        char southx = this.south ? 't' : 'f';
-        char westx = this.north ? 't' : 'f';
-        char eastx = this.north ? 't' : 'f';
+        char northx = this.isNorth() ? 't' : 'f';
+        char southx = this.isSouth() ? 't' : 'f';
+        char westx = this.isNorth() ? 't' : 'f';
+        char eastx = this.isNorth() ? 't' : 'f';
         
         return "" + northx + southx + westx + eastx;
+    }
+
+    /**
+     * @return the north
+     */
+    public boolean isNorth() {
+        return north;
+    }
+
+    /**
+     * @return the south
+     */
+    public boolean isSouth() {
+        return south;
+    }
+
+    /**
+     * @return the west
+     */
+    public boolean isWest() {
+        return west;
+    }
+
+    /**
+     * @return the east
+     */
+    public boolean isEast() {
+        return east;
+    }
+
+    /**
+     * @return the onThePath
+     */
+    public boolean isOnThePath() {
+        return onThePath;
+    }
+
+    /**
+     * @param onThePath the onThePath to set
+     */
+    public void setOnThePath(boolean onThePath) {
+        this.onThePath = onThePath;
     }
 }

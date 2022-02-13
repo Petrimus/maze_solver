@@ -12,7 +12,8 @@ public class RecursiveSolve {
 
     private int height = 0;
     private int width;
-    private int[][] maze; // = new boolean[width][height]; // The maze
+    private Cell[][] maze;
+    private Maze referenceMaze;
     private boolean[][] visited;
     // private boolean[][] correctPath;
     private int startX;
@@ -28,40 +29,26 @@ public class RecursiveSolve {
      * @author Petri Palmu
      * @param referenceMaze
      */
-
-
     public RecursiveSolve(Maze referenceMaze) {
         this.height = referenceMaze.getMazeHeight();
         this.width = referenceMaze.getMazeLength();
         this.visited = new boolean[height][width];
-        // this.correctPath = new boolean[height][width];
-        this.maze = Utils.copyMaze(referenceMaze);
-        System.out.println(maze[1][1]);
-
+        this.maze = referenceMaze.getMazeArray();
+        this.referenceMaze = referenceMaze;
+        // this.maze = Utils.copyMaze(referenceMaze);
 
     }
 
     public void solve() {
         long startTime = System.nanoTime();
-        int startX = 1;
-        int startY = 1;
+        int startX = 0;
+        int startY = 0;
         boolean solved = recursiveSolve(startY, startX);
         long endTime = System.nanoTime();
         if (solved) {
             System.out.println("");
             System.out.println("solved");
-            for (int[] maze1 : this.maze) {
-                System.out.println("");
-                for (int j = 0; j < maze1.length; j++) {
-                    if (maze1[j] == 1) {
-                        System.out.print("#");
-                    } else if (maze1[j] == 2) {
-                        System.out.print("*");
-                    } else {
-                        System.out.print(" ");
-                    }
-                }
-            }
+           this.referenceMaze.drawMaze();
             System.out.println("");
 
             System.out.println("Time it took to solve was " + (endTime - startTime) / 1e9 / 1000 + "milliseconds");
@@ -73,82 +60,46 @@ public class RecursiveSolve {
     }
 
     public boolean recursiveSolve(int y, int x) {
-        if (y == height - 2 && x == width - 2) {
-            this.maze[y][x] = 2;
+        Cell cell = this.maze[y][x];
+        if (y == height - 1 && x == width - 1) {
             return true;
         }
-        if (maze[y][x] == 1 || visited[y][x]) {
+        if (visited[y][x]) {
             return false;
         }
         // If you are on a wall or already were here
         visited[y][x] = true;
 
-        if (y != 0) {
+        if (cell.isNorth()) {
             if (recursiveSolve(y - 1, x)) {
-                this.maze[y][x] = 2;
+                cell.setOnThePath(true);
                 return true;
             }
         }
-        if (y != height - 1) {
+
+        if (cell.isSouth()) {
             if (recursiveSolve(y + 1, x)) {
-                this.maze[y][x] = 2;
+                cell.setOnThePath(true);
                 return true;
             }
         }
-        if (x != 0) {
-            if (recursiveSolve(y, x - 1)) {
-                this.maze[y][x] = 2;
-                return true;
-            }
-        }
-        if (x != width - 1) {
+
+        if (cell.isEast()) {
             if (recursiveSolve(y, x + 1)) {
-                this.maze[y][x] = 2;
+                cell.setOnThePath(true);
                 return true;
             }
         }
+
+        if (cell.isWest()) {
+            if (recursiveSolve(y, x - 1)) {
+                cell.setOnThePath(true);
+                return true;
+            }
+        }
+
         return false;
     }
-
-    
-//    public boolean recursiveSolve(int y, int x) {
-//        if (y == height - 2 && x == width - 2) {
-//            this.maze[y][x] = 2;
-//            return true;
-//        }
-//        if (maze[y][x] == 1 || visited[y][x]) {
-//            return false;
-//        }
-//        // If you are on a wall or already were here
-//        visited[y][x] = true;
-//
-//        if (y != 0) {
-//            if (recursiveSolve(y - 1, x)) {
-//                this.maze[y][x] = 2;
-//                return true;
-//            }
-//        }
-//        if (y != height - 1) {
-//            if (recursiveSolve(y + 1, x)) {
-//                this.maze[y][x] = 2;
-//                return true;
-//            }
-//        }
-//        if (x != 0) {
-//            if (recursiveSolve(y, x - 1)) {
-//                this.maze[y][x] = 2;
-//                return true;
-//            }
-//        }
-//        if (x != width - 1) {
-//            if (recursiveSolve(y, x + 1)) {
-//                this.maze[y][x] = 2;
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
 
     public int getHeight() {
         return this.height;

@@ -17,7 +17,7 @@ package mazesolver;
  */
 public class Maze {
 
-    private int[][] maze;
+    private Cell[][] maze;
 
 //            = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 //            {1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1},
@@ -30,7 +30,7 @@ public class Maze {
 //            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1},
 //            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 //            };
-    public Maze(int[][] maze) {
+    public Maze(Cell[][] maze) {
         this.maze = maze;
     }
 
@@ -52,16 +52,19 @@ public class Maze {
         // System.out.println("+   ");
         for (int y = 0; y < height; y++) {
             // draw the north edge
-            for (int x = 0; x < width; x++) { 
-                // System.out.println("maze " + maze[y][x] + "maze bit " + (maze[y][x] & 1));
-                System.out.print((maze[y][x] & 1) == 0 ? "+---" : "+   ");
-                // if (maze[i][j] == 1)
+            for (int x = 0; x < width; x++) {
+                System.out.print(maze[y][x].isNorth() ? "+   " : "+---");
+
             }
             System.out.println("+");
             // draw the west edge
             for (int x = 0; x < width; x++) {
-                //System.out.println("maze " + maze[y][x] + "maze bit " + (maze[y][x] & 8));
-                System.out.print((maze[y][x] & 8) == 0 ? "|   " : "    ");
+                if (getCell(y, x).isOnThePath()) {
+                    System.out.print(maze[y][x].isWest() ? "  * " : "| * ");
+                } else {
+                    System.out.print(maze[y][x].isWest() ? "    " : "|   ");
+                }
+
             }
             System.out.println("|");
         }
@@ -72,7 +75,7 @@ public class Maze {
         System.out.println("+");
     }
 
-    public int[][] getMazeArray() {
+    public Cell[][] getMazeArray() {
         return this.maze;
     }
 
@@ -82,5 +85,9 @@ public class Maze {
 
     public int getMazeHeight() {
         return this.maze.length;
+    }
+
+    public Cell getCell(int y, int x) {
+        return this.maze[y][x];
     }
 }

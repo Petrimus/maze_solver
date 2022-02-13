@@ -17,15 +17,15 @@ public class MazeGenerator {
     private int height;
     private int[][] maze;
 
-    public int[][] generateMaze(int height, int width) {
+    public Cell[][] generateMaze(int height, int width) {
         this.width = width;
         this.height = height;
         this.maze = new int[height][width];
         System.out.println("maze length boo" + this.maze.length);
         generate(0, 0);
         printMazeArray();
-        createMazeToSolve(this.maze);
-        return this.maze;
+        return createMazeToSolve(this.maze);
+        //return this.maze;
     }
 
     private void generate(int cy, int cx) {
@@ -82,15 +82,14 @@ public class MazeGenerator {
         }
     }
 
-    private void createMazeToSolve(int[][] maze) {
+    private Cell[][] createMazeToSolve(int[][] maze) {
         Cell[][] newMaze = new Cell[maze.length][maze[0].length];
         for (int i = 0; i < newMaze.length; i++) {
             for (int j = 0; j < newMaze[i].length; j++) {
                 newMaze[i][j] = new Cell();
             }
         }
-        System.out.println("new maze length " + newMaze[0].length);
-        System.out.println("new maze 0 0 " + newMaze[0][0]);
+
         for (int y = 0; y < maze.length; y++) {
             for (int x = 0; x < maze[0].length; x++) {
 
@@ -110,12 +109,12 @@ public class MazeGenerator {
             }
         }
 
-        for (int y = 0; y < newMaze.length; y++) {
-            for (int x = 0; x < newMaze[0].length; x++) {
-                System.out.println("" + newMaze[y][x]);
-            }
-        }
-
+//        for (int y = 0; y < newMaze.length; y++) {
+//            for (int x = 0; x < newMaze[0].length; x++) {
+//                System.out.println("" + newMaze[y][x]);
+//            }
+//        }
+        return newMaze;
     }
 
 }
