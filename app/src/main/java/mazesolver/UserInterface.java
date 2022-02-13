@@ -25,7 +25,7 @@ public class UserInterface {
 
     public void start() {
 
-        RecursiveSolve recSolve = new RecursiveSolve();
+        RecursiveSolve recSolve = new RecursiveSolve(this.maze);
         System.out.print("Anna nimesi: ");
         String name = reader.nextLine();
         System.out.println("");
@@ -56,7 +56,7 @@ public class UserInterface {
                     break;
 
                 case 4:
-                    recSolve.solve(this.maze);
+                    recSolve.solve();
                     break;
 
                 case 5:
@@ -95,8 +95,8 @@ public class UserInterface {
     }
 
     private int[][] solvableMaze(int[][] original) {
-        int height = original.length*2;
-        int width = original[0].length*2;
+        int height = original.length;
+        int width = original[0].length;
         int[][] solveMaze = new int[height][width];
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {

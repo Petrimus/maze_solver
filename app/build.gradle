@@ -60,10 +60,10 @@ jacocoTestReport {
         xml.required = true
         html.required = true
     }
-<<<<<<< HEAD
+
 }
 
 check.dependsOn jacocoTestReport
-=======
-}
->>>>>>> 6898e1d579c1adf6c89cf6e6e56aa0bcde9bffd5
+
+
+

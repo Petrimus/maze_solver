@@ -28,26 +28,20 @@ public class RecursiveSolve {
      * @author Petri Palmu
      * @param referenceMaze
      */
-<<<<<<< HEAD
-   
-    public void solve(Maze referenceMaze) {
-=======
+
+
     public RecursiveSolve(Maze referenceMaze) {
->>>>>>> 6898e1d579c1adf6c89cf6e6e56aa0bcde9bffd5
         this.height = referenceMaze.getMazeHeight();
         this.width = referenceMaze.getMazeLength();
         this.visited = new boolean[height][width];
         // this.correctPath = new boolean[height][width];
         this.maze = Utils.copyMaze(referenceMaze);
         System.out.println(maze[1][1]);
-<<<<<<< HEAD
-        
-=======
+
 
     }
 
     public void solve() {
->>>>>>> 6898e1d579c1adf6c89cf6e6e56aa0bcde9bffd5
         long startTime = System.nanoTime();
         int startX = 1;
         int startY = 1;
@@ -69,11 +63,9 @@ public class RecursiveSolve {
                 }
             }
             System.out.println("");
-<<<<<<< HEAD
-            System.out.println("Time it took to solve was " + (endTime - startTime) / 1e9 * 1000 + "milliseconds");
-=======
+
             System.out.println("Time it took to solve was " + (endTime - startTime) / 1e9 / 1000 + "milliseconds");
->>>>>>> 6898e1d579c1adf6c89cf6e6e56aa0bcde9bffd5
+
         } else {
             System.out.println("Pieleen meni");
         }
@@ -117,7 +109,7 @@ public class RecursiveSolve {
         }
         return false;
     }
-<<<<<<< HEAD
+
     
 //    public boolean recursiveSolve(int y, int x) {
 //        if (y == height - 2 && x == width - 2) {
@@ -156,8 +148,7 @@ public class RecursiveSolve {
 //        }
 //        return false;
 //    }
-=======
->>>>>>> 6898e1d579c1adf6c89cf6e6e56aa0bcde9bffd5
+
 
     public int getHeight() {
         return this.height;
