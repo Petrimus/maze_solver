@@ -47,5 +47,6 @@ public class MazeGeneratorTest {
 		}
 		System.out.println("+");
 	}
+        
     
 }
