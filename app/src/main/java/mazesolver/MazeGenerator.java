@@ -23,7 +23,7 @@ public class MazeGenerator {
         this.maze = new int[height][width];
         System.out.println("maze length boo" + this.maze.length);
         generate(0, 0);
-        printMazeArray();
+        // printMazeArray();
         return createMazeToSolve(this.maze);
         //return this.maze;
     }

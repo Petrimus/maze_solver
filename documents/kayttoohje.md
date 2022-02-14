@@ -1,0 +1,1 @@
+Ei vielä tehty, koska en tiedä mitä sovellus lopulta tekee. Sovelluksessa on kuitenkin ascii-käyttöliittymä, jonka pitäisi tarpeeksi helppokäyttöinen, jotta sovelluksen käyttäminen onnistuisi ilman käyttöohjetta. Käyttöohjeet kuitenkin kirjoitetaan tänne. 

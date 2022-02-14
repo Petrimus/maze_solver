@@ -1,0 +1,1 @@
+Testausdokumenttia ei vielä ole. Koodi on muuttunut sellaista vauhtia, että en tiedä mitä testata. Nykyinen versio taitaa olla se, jolla jatkan sovelluksen loppuun, joten testejä pitäisi alkaa tehdä.

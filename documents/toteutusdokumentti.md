@@ -1,0 +1,1 @@
+Tätä ei ole vielä aloitettu, koska toteutus on tässä alkuvaiheessa muuttunut moneen kertaan. Nykyinen versio on se, jolla projekti viedään loppuun, joten toteutuksen kirjoitus on tarkoitus aloittaa välittömästi.
