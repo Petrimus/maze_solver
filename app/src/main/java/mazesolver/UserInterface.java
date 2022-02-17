@@ -17,7 +17,7 @@ public class UserInterface {
     private final MazeGenerator generator = new MazeGenerator();
 
     public UserInterface(Scanner reader) {
-        this.maze = new Maze(generator.generateMaze(10, 10));        
+        this.maze = generator.generateMaze(10, 10);        
         this.reader = reader;
     }
 
@@ -87,24 +87,10 @@ public class UserInterface {
                 System.out.println("Pitää olla numer välillä 10-100");
             }
         }
-        return new Maze(this.generator.generateMaze(height, width));
+        return this.generator.generateMaze(height, width);
     }
 
-    private int[][] solvableMaze(int[][] original) {
-        int height = original.length;
-        int width = original[0].length;
-        int[][] solveMaze = new int[height][width];
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                if ((original[y][x] & 1) == 0 ) { // && (original[y][x] & 8) == 0
-                    solveMaze[y][x] = 1;
-                }
-            }
-        }
-        printMazeArray(solveMaze);
-        return solveMaze;
-    }
-    
+      
      private void printMazeArray(int[][] arr) {
         for (int[] arr1 : arr) {
             for (int j = 0; j < arr[0].length; j++) {

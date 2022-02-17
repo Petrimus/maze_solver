@@ -17,7 +17,7 @@ package mazesolver;
  */
 public class Maze {
 
-    private Cell[][] maze;
+    private final Cell[][] maze;
 
     public Maze(Cell[][] maze) {
         this.maze = maze;

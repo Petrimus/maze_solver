@@ -17,15 +17,14 @@ public class MazeGenerator {
     private int height;
     private int[][] maze;
 
-    public Cell[][] generateMaze(int height, int width) {
+    public Maze generateMaze(int height, int width) {
         this.width = width;
         this.height = height;
         this.maze = new int[height][width];
-        System.out.println("maze length boo" + this.maze.length);
+        // System.out.println("maze length boo" + this.maze.length);
         generate(0, 0);
         // printMazeArray();
-        return createMazeToSolve(this.maze);
-        //return this.maze;
+        return new Maze(createMazeToSolve(this.maze));        
     }
 
     private void generate(int cy, int cx) {
@@ -73,20 +72,20 @@ public class MazeGenerator {
         }
     };
 
-    private void printMazeArray() {
-        for (int[] maze1 : this.maze) {
-            for (int j = 0; j < this.maze[0].length; j++) {
-                System.out.printf("%5d ", maze1[j]);
-            }
-            System.out.println();
-        }
-    }
+//    private void printMazeArray() {
+//        for (int[] maze1 : this.maze) {
+//            for (int j = 0; j < this.maze[0].length; j++) {
+//                System.out.printf("%5d ", maze1[j]);
+//            }
+//            System.out.println();
+//        }
+//    }
 
     private Cell[][] createMazeToSolve(int[][] maze) {
         Cell[][] newMaze = new Cell[maze.length][maze[0].length];
-        for (int i = 0; i < newMaze.length; i++) {
-            for (int j = 0; j < newMaze[i].length; j++) {
-                newMaze[i][j] = new Cell();
+        for (Cell[] newMaze1 : newMaze) {
+            for (int j = 0; j < newMaze1.length; j++) {
+                newMaze1[j] = new Cell();
             }
         }
 
@@ -109,11 +108,6 @@ public class MazeGenerator {
             }
         }
 
-//        for (int y = 0; y < newMaze.length; y++) {
-//            for (int x = 0; x < newMaze[0].length; x++) {
-//                System.out.println("" + newMaze[y][x]);
-//            }
-//        }
         return newMaze;
     }
 
