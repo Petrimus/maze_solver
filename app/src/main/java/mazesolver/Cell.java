@@ -4,21 +4,52 @@
  */
 package mazesolver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author popalmu
  */
 public class Cell {
+
+    private final int y;
+    private final int x;
     private boolean north = false;
     private boolean south = false;
     private boolean west = false;
     private boolean east = false;
     private boolean onThePath = false;
-    
-    public Cell() {
-        
+
+    public Cell(int y, int x) {
+        this.y = y;
+        this.x = x;
     }
-        
+
+    public List<Direction> getPossibleDirections() {
+        List<Direction> dirs = new ArrayList<>();
+        if (this.north) {
+            dirs.add(Direction.NORTH);
+        }
+        if (this.south) {
+            dirs.add(Direction.SOUTH);
+        }
+        if (this.east) {
+            dirs.add(Direction.EAST);
+        }
+        if (this.west) {
+            dirs.add(Direction.WEST);
+        }
+        return dirs;
+    }
+
+    /**
+     * @param onThePath the onThePath to set
+     */
+    public void setOnThePath(boolean onThePath) {
+        this.onThePath = onThePath;
+    }
+
     /**
      * @param north the north to set
      */
@@ -45,16 +76,6 @@ public class Cell {
      */
     public void setSouth(boolean south) {
         this.south = south;
-    }
-    
-    @Override
-    public String toString() {
-        char northx = this.isNorth() ? 't' : 'f';
-        char southx = this.isSouth() ? 't' : 'f';
-        char westx = this.isNorth() ? 't' : 'f';
-        char eastx = this.isNorth() ? 't' : 'f';
-        
-        return "" + northx + southx + westx + eastx;
     }
 
     /**
@@ -92,10 +113,28 @@ public class Cell {
         return onThePath;
     }
 
-    /**
-     * @param onThePath the onThePath to set
-     */
-    public void setOnThePath(boolean onThePath) {
-        this.onThePath = onThePath;
+    @Override
+    public String toString() {
+        char northx = this.isNorth() ? 't' : 'f';
+        char southx = this.isSouth() ? 't' : 'f';
+        char westx = this.isNorth() ? 't' : 'f';
+        char eastx = this.isNorth() ? 't' : 'f';
+
+        return "" + northx + southx + westx + eastx;
     }
+
+    /**
+     * @return the y
+     */
+    public int getY() {
+        return y;
+    }
+
+    /**
+     * @return the x
+     */
+    public int getX() {
+        return x;
+    }
+
 }

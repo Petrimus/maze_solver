@@ -15,7 +15,7 @@ public class MazeGenerator {
 
     private int width;
     private int height;
-    private int[][] maze;
+    private int[][] maze;    
 
     public Maze generateMaze(int height, int width) {
         this.width = width;
@@ -24,20 +24,22 @@ public class MazeGenerator {
         // System.out.println("maze length boo" + this.maze.length);
         generate(0, 0);
         // printMazeArray();
-        return new Maze(createMazeToSolve(this.maze));        
+        return new Maze(createMazeToSolve(this.maze));
     }
 
     private void generate(int cy, int cx) {
         Direction[] dirs = Direction.values();
         Collections.shuffle(Arrays.asList(dirs));
         for (Direction dir : dirs) {
-            int nx = cx + dir.dx;
-            int ny = cy + dir.dy;
+            int nx = cx + dir.getDx();
+            int ny = cy + dir.getDy();
             if (isValid(nx, width) && isValid(ny, height)
                     && (this.maze[ny][nx] == 0)) {
-                this.maze[cy][cx] |= dir.bit;
-                this.maze[ny][nx] |= dir.opposite.bit;
-                generate(ny, nx);
+                this.maze[cy][cx] |= dir.getBit();
+                this.maze[ny][nx] |= dir.getOpposite().getBit();
+                // if (cy != height - 1 && cx != width - 1) {
+                    generate(ny, nx);
+                //}
             }
         }
     }
@@ -46,52 +48,16 @@ public class MazeGenerator {
         return (v >= 0) && (v < upper);
     }
 
-    private enum Direction {
-        NORTH(1, -1, 0),
-        SOUTH(2, 1, 0),
-        EAST(4, 0, 1),
-        WEST(8, 0, -1);
-
-        private final int bit;
-        private final int dy;
-        private final int dx;
-        private Direction opposite;
-
-        // use the static initializer to resolve forward references
-        static {
-            NORTH.opposite = SOUTH;
-            SOUTH.opposite = NORTH;
-            EAST.opposite = WEST;
-            WEST.opposite = EAST;
-        }
-
-        private Direction(int bit, int dy, int dx) {
-            this.bit = bit;
-            this.dy = dy;
-            this.dx = dx;
-        }
-    };
-
-//    private void printMazeArray() {
-//        for (int[] maze1 : this.maze) {
-//            for (int j = 0; j < this.maze[0].length; j++) {
-//                System.out.printf("%5d ", maze1[j]);
-//            }
-//            System.out.println();
-//        }
-//    }
+   
 
     private Cell[][] createMazeToSolve(int[][] maze) {
+        int height = maze.length;
+        int width = maze[0].length;
         Cell[][] newMaze = new Cell[maze.length][maze[0].length];
-        for (Cell[] newMaze1 : newMaze) {
-            for (int j = 0; j < newMaze1.length; j++) {
-                newMaze1[j] = new Cell();
-            }
-        }
 
-        for (int y = 0; y < maze.length; y++) {
-            for (int x = 0; x < maze[0].length; x++) {
-
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                newMaze[y][x] = new Cell(y, x);
                 if (y != 0) {
                     if ((maze[y][x] & 1) != 0) {
                         newMaze[y][x].setNorth(true);

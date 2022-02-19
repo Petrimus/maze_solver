@@ -13,30 +13,39 @@ import java.util.Scanner;
 public class UserInterface {
 
     private final Scanner reader;
-    private Maze maze;    
+    private Maze maze;
     private final MazeGenerator generator = new MazeGenerator();
 
     public UserInterface(Scanner reader) {
-        this.maze = generator.generateMaze(10, 10);        
+        this.maze = generator.generateMaze(5, 5);
         this.reader = reader;
     }
 
     public void start() {
         RecursiveSolve recSolve = new RecursiveSolve();
+        DeadendFillingSolver deadendSolver = new DeadendFillingSolver();
+        
+        int command = 0;
         System.out.print("Anna nimesi: ");
         String name = reader.nextLine();
         System.out.println("");
 
         OUTER:
         while (true) {
+            System.out.println("");
             System.out.println("Anna komento: ");
             System.out.println("1 - tulosta nimi");
             System.out.println("2 - Generoi uusi labyrintti");
             System.out.println("3 - piirrä labyrintti");
             System.out.println("4 - ratkaise labyrintti rekursiivisesti");
-            System.out.println("5 - lopeta");
+            System.out.println("5 - ratkaise labyrintti deadend-filling algoritmilla");
 
-            int command = Integer.parseInt(reader.nextLine());
+            System.out.println("6 - lopeta");
+
+            if (reader.hasNextInt()) {
+                command = reader.nextInt();
+            }
+            // int command = Integer.parseInt(reader.nextLine());
 
             switch (command) {
                 case 1:
@@ -44,7 +53,8 @@ public class UserInterface {
                     break;
 
                 case 2:
-                    this.maze = optionGeneratteMaze();                   
+                    this.maze = optionGeneratteMaze();
+                    break;
 
                 case 3:
                     this.maze.drawMaze();
@@ -54,8 +64,12 @@ public class UserInterface {
                 case 4:
                     recSolve.solve(this.maze);
                     break;
+                    
+                    case 5:
+                    deadendSolver.solve(this.maze);
+                    break;
 
-                case 5:
+                case 6:
                     break OUTER;
 
                 default:
@@ -77,7 +91,7 @@ public class UserInterface {
                 System.out.println("Pitää olla numer välillä 10-100");
             }
         }
-        System.out.println("");
+        // System.out.println("");
         while (true) {
             System.out.print("Anna korkeus (10-100): ");
             if (reader.hasNextInt()) {
@@ -90,8 +104,7 @@ public class UserInterface {
         return this.generator.generateMaze(height, width);
     }
 
-      
-     private void printMazeArray(int[][] arr) {
+    private void printMazeArray(int[][] arr) {
         for (int[] arr1 : arr) {
             for (int j = 0; j < arr[0].length; j++) {
                 System.out.printf("%5d ", arr1[j]);
