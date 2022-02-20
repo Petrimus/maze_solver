@@ -9,8 +9,7 @@ plugins {
 }
 
 repositories {
-    // Use jcenter for resolving your dependencies.
-    
+    // Use jcenter for resolving your dependencies.    
     jcenter()
 }
 
@@ -27,14 +26,15 @@ application {
     mainClass = 'mazesolver.App'
 }
 
-// tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-//   useJUnitPlatform()
-// }
+test {
+    // report is always generated after tests run
+    finalizedBy jacocoTestReport 
+}
+jacocoTestReport {
+    // tests are required to run before generating the report
+    dependsOn test 
+}
 
-// test {
-//  useJUnitPlatform()
-// }
 
 run {
     standardInput = System.in
@@ -46,19 +46,18 @@ checkstyle {
 }
 
 jacoco {
-    toolVersion = "0.8.6"
+    toolVersion = "0.8.7"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
 }
 
 jacocoTestReport {
     reports {
-        xml.required = true
-        html.required = true
-        html.destination file("build/jacocoHtml")
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
-
 }
 
-check.dependsOn jacocoTestReport
 
 
 

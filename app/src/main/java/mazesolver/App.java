@@ -5,7 +5,9 @@ package mazesolver;
 
 import java.util.Scanner;
 
-
+/** 
+ * @author Petri Palmu
+ */
 public class App {
     public String getGreeting() {
         return "Hello World!";
