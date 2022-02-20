@@ -15,7 +15,7 @@ public class MazeGenerator {
 
     private int width;
     private int height;
-    private int[][] maze;    
+    private int[][] maze;
 
     public Maze generateMaze(int height, int width) {
         this.width = width;
@@ -35,11 +35,14 @@ public class MazeGenerator {
             int ny = cy + dir.getDy();
             if (isValid(nx, width) && isValid(ny, height)
                     && (this.maze[ny][nx] == 0)) {
-                this.maze[cy][cx] |= dir.getBit();
                 this.maze[ny][nx] |= dir.getOpposite().getBit();
-                // if (cy != height - 1 && cx != width - 1) {
-                    generate(ny, nx);
-                //}
+
+                if (cy == height - 1 && cx == width - 1) {
+                    return;
+                }
+                this.maze[cy][cx] |= dir.getBit();
+
+                generate(ny, nx);
             }
         }
     }
@@ -47,8 +50,6 @@ public class MazeGenerator {
     private boolean isValid(int v, int upper) {
         return (v >= 0) && (v < upper);
     }
-
-   
 
     private Cell[][] createMazeToSolve(int[][] maze) {
         int height = maze.length;
