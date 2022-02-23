@@ -15,10 +15,10 @@ public class Cell {
 
     private final int y;
     private final int x;
-    private boolean north = false;
-    private boolean south = false;
-    private boolean west = false;
-    private boolean east = false;
+    private boolean north = true;
+    private boolean south = true;
+    private boolean west = true;
+    private boolean east = true;
     private boolean onThePath = false;
 
     public Cell(int y, int x) {
@@ -117,8 +117,8 @@ public class Cell {
     public String toString() {
         char northx = this.isNorth() ? 't' : 'f';
         char southx = this.isSouth() ? 't' : 'f';
-        char westx = this.isNorth() ? 't' : 'f';
-        char eastx = this.isNorth() ? 't' : 'f';
+        char westx = this.isWest() ? 't' : 'f';
+        char eastx = this.isEast() ? 't' : 'f';
 
         return "" + northx + southx + westx + eastx;
     }

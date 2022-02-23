@@ -54,10 +54,12 @@ public class UserInterface {
 
                 case 2:
                     this.maze = optionGeneratteMaze();
+                    
                     break;
 
                 case 3:
                     this.maze.drawMaze();
+                    this.maze.printMazeArray();
                     System.out.println("");
                     break;
 

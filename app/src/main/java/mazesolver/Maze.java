@@ -25,7 +25,7 @@ public class Maze {
     }
 
     public void drawMaze() {
-//       
+        
         int height = maze.length;
         int width = maze[0].length;
         // System.out.println("+   ");
@@ -68,5 +68,13 @@ public class Maze {
 
     public Cell getCell(int y, int x) {
         return this.maze[y][x];
+    }
+    
+    public void printMazeArray() {
+         for (int y = 0; y < this.maze.length; y++) {
+            for (int x = 0; x < this.maze[0].length; x++) {
+                System.out.println(this.maze[y][x]); 
+            }
+            }
     }
 }
