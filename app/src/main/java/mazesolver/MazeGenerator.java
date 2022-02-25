@@ -20,10 +20,10 @@ public class MazeGenerator {
     public Maze generateMaze(int height, int width) {
         this.width = width;
         this.height = height;
-        this.maze = new int[height][width];
-        // System.out.println("maze length boo" + this.maze.length);
+        this.maze = new int[height][width];        
         maze[height -1][width -1] = 8;
         generate(0, 0);
+         maze[height -1][width -2] |= 4;
         // printMazeArray();
         return new Maze(createMazeToSolve(this.maze));
     }
@@ -34,13 +34,9 @@ public class MazeGenerator {
         for (Direction dir : dirs) {
             int nx = cx + dir.getDx();
             int ny = cy + dir.getDy();
-            if (isValid(nx, width) && isValid(ny, height)
+            if (isValid(nx, width) && isValid(ny, this.height)
                     && (this.maze[ny][nx] == 0)) {
                 this.maze[ny][nx] |= dir.getOpposite().getBit();
-
-//                if (cy == height - 1 && cx == width - 1) {
-//                    return;
-//                }
                 this.maze[cy][cx] |= dir.getBit();
 
                 generate(ny, nx);
@@ -53,12 +49,11 @@ public class MazeGenerator {
     }
 
     private Cell[][] createMazeToSolve(int[][] maze) {
-        int height = maze.length;
-        int width = maze[0].length;
+       
         Cell[][] newMaze = new Cell[maze.length][maze[0].length];
     
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        for (int y = 0; y < this.height; y++) {
+            for (int x = 0; x < this.width; x++) {
                 newMaze[y][x] = new Cell(y, x);
 
                 if ((maze[y][x] & 1) == 0) {

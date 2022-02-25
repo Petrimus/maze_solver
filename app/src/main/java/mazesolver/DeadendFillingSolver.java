@@ -26,58 +26,60 @@ public class DeadendFillingSolver {
 
         Deque<Cell> deadends = new ArrayDeque<>();
 
-        for (int y = 0; y < mazeArr.length; y++) {
-            for (int x = 0; x < mazeArr[y].length; x++) {
+        for (int y = 0; y < this.height; y++) {
+            for (int x = 0; x < this.width; x++) {
                 Cell cell = mazeArr[y][x];
-                if (cell.getPossibleDirections().size() == 1 && (y != height - 1 && x != width - 1) && (y != 0 && x != 0)) {
+                // System.out.println("first cell: " + cell);
+                if ((cell.getPossibleDirections().size() == 1) && (y != height - 1 || x != width - 1) && (y != 0 || x != 0)) {
                     deadends.add(cell);
+                    System.out.println("cell: " + cell);
                 }
             }
         }
+        // System.out.println("deadends length: " + deadends.size());
         Iterator<Cell> itr = deadends.iterator();
         while (itr.hasNext()) {
-            System.out.println("ollaanko täällä???");
             Cell cell = itr.next();
             Direction dir = cell.getPossibleDirections().get(0);
-            clearPath(cell.getY() + dir.getDy(), cell.getX() + dir.getDx(), dir);
+            clearPath(cell.getY(), cell.getX(), dir);
         }
 
     }
 
-    private void clearPath(int cy, int cx, Direction dir) {
+    private void clearPath(int py, int px, Direction dir) {
         System.out.println(dir);
-        if (isValid(cy, height) && isValid(cx, width)) {
-           
+        int cy = py + dir.getDy();
+        int cx = px + dir.getDx();
 
-            Cell cell = this.mazeArr[cy][cx];
-            
+        if (isValid(cy, height) && isValid(cx, width)) {
+            Cell prevCell = this.mazeArr[py][px];
+            Cell currCell = this.mazeArr[cy][cx];
+
             if (dir == Direction.NORTH) {
-                cell.setSouth(false);
+                prevCell.setNorth(false);
+                currCell.setSouth(false);
             }
             if (dir == Direction.SOUTH) {
-                cell.setNorth(false);
+                prevCell.setSouth(false);
+                currCell.setNorth(false);
             }
             if (dir == Direction.WEST) {
-                cell.setEast(false);
+                prevCell.setWest(false);
+                currCell.setEast(false);
             }
             if (dir == Direction.EAST) {
-                cell.setWest(false);
+                prevCell.setEast(false);
+                currCell.setWest(false);
             }
 
-            List<Direction> dirs = cell.getPossibleDirections();
+            List<Direction> dirs = currCell.getPossibleDirections();
+
             if (dirs.size() > 1) {
-                return;
-            }
-            
-             if (cy == height - 1 && cx == width - 1) {
                 return;
             }
 
             for (Direction newDir : dirs) {
-                if (newDir != dir) {
-                    System.out.println("newdir " + newDir + " dir " + dir);
-                    clearPath(cell.getY() + newDir.getDy(), cell.getX() + newDir.getDx(), newDir);
-                }
+                clearPath(currCell.getY(), currCell.getX(), newDir);
 
             }
 

@@ -16,10 +16,8 @@ public class RecursiveSolve {
     private Maze referenceMaze;
     private boolean[][] visited;
     // private boolean[][] correctPath;
-    private int startX;
-    private int startY;
-    private int endX;
-    private int endY;
+    private final int startX = 0;
+    private final int startY = 0;    
 
     /**
      * Class provides recursive way to a solve maze.
@@ -46,9 +44,8 @@ public class RecursiveSolve {
         this.maze = referenceMaze.getMazeArray();
         this.referenceMaze = referenceMaze;
         long startTime = System.nanoTime();
-        int startX = 0;
-        int startY = 0;
-        boolean solved = recursiveSolve(startY, startX);
+        
+        boolean solved = recursiveSolve(this.startY, this.startX);
         long endTime = System.nanoTime();
         if (solved) {
             System.out.println("");
@@ -72,7 +69,7 @@ public class RecursiveSolve {
         if (visited[y][x]) {
             return false;
         }
-        // If you are on a wall or already were here
+        
         visited[y][x] = true;
 
         if (cell.isNorth()) {

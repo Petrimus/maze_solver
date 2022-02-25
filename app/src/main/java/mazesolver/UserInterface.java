@@ -59,7 +59,7 @@ public class UserInterface {
 
                 case 3:
                     this.maze.drawMaze();
-                    this.maze.printMazeArray();
+                    // this.maze.printMazeArray();
                     System.out.println("");
                     break;
 

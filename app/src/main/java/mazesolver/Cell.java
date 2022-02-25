@@ -120,7 +120,7 @@ public class Cell {
         char westx = this.isWest() ? 't' : 'f';
         char eastx = this.isEast() ? 't' : 'f';
 
-        return "" + northx + southx + westx + eastx;
+        return "y: " + this.y + " x: " + this.x + " " + northx + southx + westx + eastx;
     }
 
     /**
