@@ -51,4 +51,13 @@ public class MazeGeneratorTest {
         }
     }
 
+    @Test
+    public void thatFirstAndLastCellHasOneOpenDirection() {
+        Cell firstCell = maze.getMazeArray()[0][0];
+        Cell lastCell = maze.getMazeArray()[9][11];
+        assertEquals(firstCell.getPossibleDirections().size(), 1);
+        assertEquals(lastCell.getPossibleDirections().size(), 1);
+
+    }
+
 }

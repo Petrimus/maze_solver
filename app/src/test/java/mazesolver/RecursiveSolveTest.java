@@ -4,12 +4,8 @@
  */
 package mazesolver;
 
-
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-
-
-
 
 /**
  *
@@ -17,5 +13,16 @@ import org.junit.Test;
  */
 public class RecursiveSolveTest {
 
+//    Cell[][] mazeArr = new Cell[3][3];
+//    mazeArr[0][0] = new Cell 
+//            = mazeArr[][]
+//            = mazeArr[][]
+//            = mazeArr[][]
+//            = mazeArr[][]
+//            = mazeArr[][]
+//            = mazeArr[][]
+//            = mazeArr[][]
+//            = mazeArr[][] = 
+//
 
 }
