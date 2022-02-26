@@ -8,9 +8,11 @@ Testeissä generoidaan uusi labyrintti ja generoidulle labyrintille suoritetaan 
 - Testataan, että labyrintti ei ole tyhjä.
 - Testataan, että on oikean mittainen.
 - Testataan, että 10 satunnaisesti valitusta labyrintin solmusta on ainakin yksi tie eteenpäin.
+- Testataan, että ensimmäisestä ja viimeisestä solmusta on vain yksi tie pois.
 
 
 ### RecursiveSolve
-Testataan rekursiivista ratkaisualgoritmia valmiilla labyrintillä.
+Testataan rekursiivista ratkaisualgoritmia valmiilla etukäteen luotavalla labyrintillä.
+- Testataan, että labyrintti ratkaiseminen onnistuu ja että ratkaisualgoritmi palauttaa oikean ratkaistun labyrintin.
 
 

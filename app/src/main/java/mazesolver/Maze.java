@@ -19,6 +19,8 @@ package mazesolver;
 public class Maze {
 
     private final Cell[][] maze;
+    private long solveTime = 0;
+    private boolean solved = false;
 
     public Maze(Cell[][] maze) {
         this.maze = maze;
@@ -53,9 +55,14 @@ public class Maze {
         }
         System.out.println("+");
     }
+    
 
     public Cell[][] getMazeArray() {
         return this.maze;
+    }
+    
+    public long getSolveTime() {
+        return this.solveTime;
     }
 
     public int getMazeLength() {
@@ -76,5 +83,26 @@ public class Maze {
                 System.out.println(this.maze[y][x]); 
             }
             }
+    }
+
+    /**
+     * @param solveTime the solveTime to set
+     */
+    public void setSolveTime(long solveTime) {
+        this.solveTime = solveTime;
+    }
+
+    /**
+     * @return the solved
+     */
+    public boolean isSolved() {
+        return solved;
+    }
+
+    /**
+     * @param solved the solved to set
+     */
+    public void setSolved(boolean solved) {
+        this.solved = solved;
     }
 }

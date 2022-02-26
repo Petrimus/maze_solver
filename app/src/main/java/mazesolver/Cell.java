@@ -25,6 +25,15 @@ public class Cell {
         this.y = y;
         this.x = x;
     }
+    
+    public Cell(int y, int x, boolean north, boolean south, boolean west, boolean east) {
+        this.y = y;
+        this.x = x;
+        this.north = north;
+        this.south = south;
+        this.west = west;
+        this.east = east;
+    }
 
     public List<Direction> getPossibleDirections() {
         List<Direction> dirs = new ArrayList<>();

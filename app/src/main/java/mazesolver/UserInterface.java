@@ -24,7 +24,7 @@ public class UserInterface {
     public void start() {
         RecursiveSolve recSolve = new RecursiveSolve();
         DeadendFillingSolver deadendSolver = new DeadendFillingSolver();
-        
+
         int command = 0;
         System.out.print("Anna nimesi: ");
         String name = reader.nextLine();
@@ -54,7 +54,7 @@ public class UserInterface {
 
                 case 2:
                     this.maze = optionGeneratteMaze();
-                    
+
                     break;
 
                 case 3:
@@ -64,11 +64,26 @@ public class UserInterface {
                     break;
 
                 case 4:
-                    recSolve.solve(this.maze);
+                    Maze recSolveMaze = recSolve.solve(this.maze);
+                    if (recSolveMaze.isSolved()) {
+                        System.out.println("");
+                        System.out.println("solved");
+                        recSolveMaze.drawMaze();
+                        System.out.println("");
+
+                        System.out.println("Time it took to solve was " + recSolveMaze.getSolveTime() / 1e9 * 1000 + "milliseconds");
+                    } else {
+                        System.out.println("Tämä labyrintti oli aivan liian vaikea tai mahdoton minulle");
+                    }
+
                     break;
-                    
-                    case 5:
-                    deadendSolver.solve(this.maze);
+
+                case 5:
+                    Maze maze = deadendSolver.solve(this.maze);
+                    maze.drawMaze();
+                    System.out.println("");
+                   System.out.println("Time it took to solve was " + maze.getSolveTime() / 1e9 * 1000 + "milliseconds");
+                    System.out.println("");
                     break;
 
                 case 6:

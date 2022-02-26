@@ -12,9 +12,10 @@ import java.util.Arrays;
  */
 public class Utils {
 
-    public static Cell[][] copyMaze(Maze maze) {
+    public static Cell[][] copyMazeArr(Maze maze) {
         Cell[][] refMaze = maze.getMazeArray();
-        Cell[][] arr = new Cell[refMaze.length][];
+        int height = refMaze.length;       
+        Cell[][] arr = new Cell[height][];
         for (int i = 0; i < refMaze.length; i++) {
             arr[i] = Arrays.copyOf(refMaze[i], refMaze[i].length);
         }

@@ -4,6 +4,8 @@
  */
 package mazesolver;
 
+import static mazesolver.Utils.copyMazeArr;
+
 /**
  *
  * @author popalmu
@@ -12,12 +14,11 @@ public class RecursiveSolve {
 
     private int height = 0;
     private int width;
-    private Cell[][] maze;
-    private Maze referenceMaze;
+    private Cell[][] mazeArr;
+    private Maze maze;
     private boolean[][] visited;
-    // private boolean[][] correctPath;
     private final int startX = 0;
-    private final int startY = 0;    
+    private final int startY = 0;
 
     /**
      * Class provides recursive way to a solve maze.
@@ -27,49 +28,30 @@ public class RecursiveSolve {
      * @author Petri Palmu
      * @param referenceMaze
      */
-//    public RecursiveSolve(Maze referenceMaze) {
-//        this.height = referenceMaze.getMazeHeight();
-//        this.width = referenceMaze.getMazeLength();
-//        this.visited = new boolean[height][width];
-//        this.maze = referenceMaze.getMazeArray();
-//        this.referenceMaze = referenceMaze;
-//        // this.maze = Utils.copyMaze(referenceMaze);
-//
-//    }
-
-    public void solve(Maze referenceMaze) {
+    public Maze solve(Maze referenceMaze) {
         this.height = referenceMaze.getMazeHeight();
         this.width = referenceMaze.getMazeLength();
         this.visited = new boolean[height][width];
-        this.maze = referenceMaze.getMazeArray();
-        this.referenceMaze = referenceMaze;
-        long startTime = System.nanoTime();
+        this.maze = new Maze(copyMazeArr(referenceMaze));
+        this.mazeArr = this.maze.getMazeArray();
         
+        long startTime = System.nanoTime();
         boolean solved = recursiveSolve(this.startY, this.startX);
         long endTime = System.nanoTime();
-        if (solved) {
-            System.out.println("");
-            System.out.println("solved");
-           this.referenceMaze.drawMaze();
-            System.out.println("");
-
-            System.out.println("Time it took to solve was " + (endTime - startTime) / 1e9 / 1000 + "milliseconds");
-
-        } else {
-            System.out.println("Pieleen meni");
-        }
-        System.out.println(" ");
+        this.maze.setSolveTime(endTime - startTime);
+        this.maze.setSolved(solved);
+        return this.maze;
     }
 
-    public boolean recursiveSolve(int y, int x) {
-        Cell cell = this.maze[y][x];
+    private boolean recursiveSolve(int y, int x) {
+        Cell cell = this.mazeArr[y][x];
         if (y == height - 1 && x == width - 1) {
             return true;
         }
         if (visited[y][x]) {
             return false;
         }
-        
+
         visited[y][x] = true;
 
         if (cell.isNorth()) {
