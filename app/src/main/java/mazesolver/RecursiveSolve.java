@@ -27,6 +27,7 @@ public class RecursiveSolve {
      *
      * @author Petri Palmu
      * @param referenceMaze
+     * @return Maze
      */
     public Maze solve(Maze referenceMaze) {
         this.height = referenceMaze.getMazeHeight();
@@ -43,6 +44,7 @@ public class RecursiveSolve {
         return this.maze;
     }
 
+    
     private boolean recursiveSolve(int y, int x) {
         Cell cell = this.mazeArr[y][x];
         if (y == height - 1 && x == width - 1) {

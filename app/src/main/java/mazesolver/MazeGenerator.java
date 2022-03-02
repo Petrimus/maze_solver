@@ -18,12 +18,15 @@ public class MazeGenerator {
     private int[][] maze;
 
     public Maze generateMaze(int height, int width) {
+        if (height < 10 | width < 10 | height > 100 | width > 100) {
+            return null;
+        }
         this.width = width;
         this.height = height;
-        this.maze = new int[height][width];        
-        maze[height -1][width -1] = 8;
+        this.maze = new int[height][width];
+        maze[height - 1][width - 1] = 8;
         generate(0, 0);
-         maze[height -1][width -2] |= 4;
+        maze[height - 1][width - 2] |= 4;
         // printMazeArray();
         return new Maze(createMazeToSolve(this.maze));
     }
@@ -49,9 +52,9 @@ public class MazeGenerator {
     }
 
     private Cell[][] createMazeToSolve(int[][] maze) {
-       
+
         Cell[][] newMaze = new Cell[maze.length][maze[0].length];
-    
+
         for (int y = 0; y < this.height; y++) {
             for (int x = 0; x < this.width; x++) {
                 newMaze[y][x] = new Cell(y, x);

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Test;
 
 /**
@@ -60,4 +61,12 @@ public class MazeGeneratorTest {
 
     }
 
+    @Test
+    public void mazeHasToBeWithinLimits() {
+         Maze one = generator.generateMaze(5, 12);
+          Maze two = generator.generateMaze(10, 125);
+          
+         assertNull("Verify that object is null", one);
+         assertNull("Verify that object is null", two);
+    }
 }

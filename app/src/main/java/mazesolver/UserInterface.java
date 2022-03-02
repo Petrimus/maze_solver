@@ -82,7 +82,7 @@ public class UserInterface {
                     Maze maze = deadendSolver.solve(this.maze);
                     maze.drawMaze();
                     System.out.println("");
-                   System.out.println("Time it took to solve was " + maze.getSolveTime() / 1e9 * 1000 + "milliseconds");
+                    System.out.println("Time it took to solve was " + maze.getSolveTime() / 1e9 * 1000 + "milliseconds");
                     System.out.println("");
                     break;
 
@@ -103,9 +103,13 @@ public class UserInterface {
             System.out.print("Anna leveys (10-100): ");
             if (reader.hasNextInt()) {
                 width = reader.nextInt();
+                if (width < 10 | width > 100) {
+                    System.out.println("Pitää olla numero välillä 10-100");
+                    continue;
+                }
                 break;
             } else {
-                System.out.println("Pitää olla numer välillä 10-100");
+                System.out.println("Pitää olla numero välillä 10-100");
             }
         }
         // System.out.println("");
@@ -113,6 +117,10 @@ public class UserInterface {
             System.out.print("Anna korkeus (10-100): ");
             if (reader.hasNextInt()) {
                 height = reader.nextInt();
+                if (height < 10 | height > 100) {
+                    System.out.println("Pitää olla numero välillä 10-100");
+                    continue;
+                }
                 break;
             } else {
                 System.out.println("Pitää olla numer välillä 10-100");

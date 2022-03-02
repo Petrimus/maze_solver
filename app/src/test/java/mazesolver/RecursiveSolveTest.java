@@ -5,7 +5,7 @@
 package mazesolver;
 
 import static org.junit.Assert.assertEquals;
-import org.junit.Before;
+import static org.junit.Assert.assertNotNull;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -34,10 +34,15 @@ public class RecursiveSolveTest {
         maze = new Maze(mazeArr);
         recSolve = new RecursiveSolve();
     }
+    @Test
+    public void solveMethodReturnsObject() {
+         Maze testMaze = RecursiveSolveTest.recSolve.solve(RecursiveSolveTest.maze);
+          assertNotNull("Verify that thing is NOT null", testMaze);
+    }
 
     @Test
     public void mazeHasRightStructure() {
-        Cell[][] arr = this.maze.getMazeArray();
+        Cell[][] arr = RecursiveSolveTest.maze.getMazeArray();
         assertEquals(arr.length, 3);
         assertEquals(arr[0].length, 3);
         assertEquals(arr[0][2].isNorth(), false);
@@ -46,14 +51,13 @@ public class RecursiveSolveTest {
 
     @Test
     public void recursiveSolveWorks() {
-        Maze testMaze = this.recSolve.solve(this.maze);
+        Maze testMaze = RecursiveSolveTest.recSolve.solve(RecursiveSolveTest.maze);
         Cell[][] mazeArr = testMaze.getMazeArray();
         assertEquals(testMaze.isSolved(), true);
         assertEquals(mazeArr[1][0].isOnThePath(), true);
         assertEquals(mazeArr[0][0].isOnThePath(), true);
         assertEquals(mazeArr[2][0].isOnThePath(), true);
         assertEquals(mazeArr[2][1].isOnThePath(), true);
-
     }
 
 }
