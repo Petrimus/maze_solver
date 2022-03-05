@@ -4,6 +4,7 @@
  */
 package mazesolver;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
@@ -15,9 +16,10 @@ public class UserInterface {
     private final Scanner reader;
     private Maze maze;
     private final MazeGenerator generator = new MazeGenerator();
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     public UserInterface(Scanner reader) {
-        this.maze = generator.generateMaze(5, 5);
+        this.maze = generator.generateMaze(10, 10);
         this.reader = reader;
     }
 
@@ -26,7 +28,7 @@ public class UserInterface {
         DeadendFillingSolver deadendSolver = new DeadendFillingSolver();
 
         int command = 0;
-        System.out.print("Anna nimesi: ");
+        System.out.println("Anna nimesi: ");
         String name = reader.nextLine();
         System.out.println("");
 
@@ -71,7 +73,7 @@ public class UserInterface {
                         recSolveMaze.drawMaze();
                         System.out.println("");
 
-                        System.out.println("Time it took to solve was " + recSolveMaze.getSolveTime() / 1e9 * 1000 + "milliseconds");
+                        System.out.println("Time it took to solve was " + df.format(recSolveMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
                     } else {
                         System.out.println("Tämä labyrintti oli aivan liian vaikea tai mahdoton minulle");
                     }
@@ -79,10 +81,10 @@ public class UserInterface {
                     break;
 
                 case 5:
-                    Maze maze = deadendSolver.solve(this.maze);
-                    maze.drawMaze();
+                    Maze solvedMaze = deadendSolver.solve(this.maze);
+                    solvedMaze.drawMaze();
                     System.out.println("");
-                    System.out.println("Time it took to solve was " + maze.getSolveTime() / 1e9 * 1000 + "milliseconds");
+                    System.out.println("Time it took to solve was " + df.format(solvedMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
                     System.out.println("");
                     break;
 
@@ -127,14 +129,5 @@ public class UserInterface {
             }
         }
         return this.generator.generateMaze(height, width);
-    }
-
-    private void printMazeArray(int[][] arr) {
-        for (int[] arr1 : arr) {
-            for (int j = 0; j < arr[0].length; j++) {
-                System.out.printf("%5d ", arr1[j]);
-            }
-            System.out.println();
-        }
     }
 }
