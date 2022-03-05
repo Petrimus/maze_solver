@@ -9,6 +9,7 @@ Testeissä generoidaan uusi labyrintti ja generoidulle labyrintille suoritetaan 
 - Testataan, että on oikean mittainen.
 - Testataan, että 10 satunnaisesti valitusta labyrintin solmusta on ainakin yksi tie eteenpäin.
 - Testataan, että ensimmäisestä ja viimeisestä solmusta on vain yksi tie pois.
+-Testataan, että väärän kokoista labyrinttiä ei voi luoda.
 
 
 ### RecursiveSolve

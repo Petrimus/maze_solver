@@ -11,7 +11,7 @@ import java.util.List;
 import static mazesolver.Utils.copyMazeArr;
 
 /**
- *
+ * A class that solves a given maze with dead end filling-algorithm
  * @author popalmu
  */
 public class DeadendFillingSolver {
@@ -21,6 +21,12 @@ public class DeadendFillingSolver {
     private int height;
     private int width;
     
+    /**
+     * Will block all the dead ends and return a new Maze with the correct path
+     * 
+     * @param referenceMaze a maze that is to be resolved
+     * @return A new maze where all the dead ends are blocked
+     */
     public Maze solve(Maze referenceMaze) {
         this.maze = new Maze(copyMazeArr(referenceMaze));
         this.mazeArr = this.maze.getMazeArray();
@@ -49,6 +55,13 @@ public class DeadendFillingSolver {
         return this.maze;
     }
     
+    /**
+     * A recursive method, which goes through the maze from a dead end and stop in conjunction
+     * 
+     * @param py current y position
+     * @param px current x position
+     * @param dir Direction to move
+     */
     private void clearPath(int py, int px, Direction dir) {
         int cy = py + dir.getDy();
         int cx = px + dir.getDx();
@@ -88,6 +101,12 @@ public class DeadendFillingSolver {
         }
     }
     
+    /**
+     * A valid check if move to this position in the maze is possible
+     * @param v
+     * @param upper
+     * @return 
+     */
     private boolean isValid(int v, int upper) {
         return (v >= 0) && (v < upper);
     }

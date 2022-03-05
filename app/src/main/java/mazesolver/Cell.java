@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Cell represents one block of labyrinth. Coordinates are immutable, but walls can be changed.
+ * 
  * @author popalmu
  */
 public class Cell {
@@ -21,11 +22,26 @@ public class Cell {
     private boolean east = true;
     private boolean onThePath = false;
 
+    /**
+     * Construct and initialize Cell in (y, x) coordinates of the maze
+     * 
+     * @param y y coordinate
+     * @param x x coordinate
+     */
     public Cell(int y, int x) {
         this.y = y;
         this.x = x;
     }
     
+    /**
+     * Construct and initializes Cell with coordinates and each possible direction to move
+     * @param y y coordinate
+     * @param x x coordinate
+     * @param north true or false if direction north is available for movement
+     * @param south true or false if direction south is available for movement
+     * @param west true or false if direction west is available for movement
+     * @param east true or false if direction east is available for movement
+     */
     public Cell(int y, int x, boolean north, boolean south, boolean west, boolean east) {
         this.y = y;
         this.x = x;
@@ -35,6 +51,11 @@ public class Cell {
         this.east = east;
     }
 
+    /**
+     * Get list of possible directions to move
+     * 
+     * @return A List of directions in which movement is possible
+     */
     public List<Direction> getPossibleDirections() {
         List<Direction> dirs = new ArrayList<>();
         if (this.north) {
@@ -116,7 +137,8 @@ public class Cell {
     }
 
     /**
-     * @return the onThePath
+     * 
+     * @return Boolean if this Cell is on the path from start to finnish
      */
     public boolean isOnThePath() {
         return onThePath;

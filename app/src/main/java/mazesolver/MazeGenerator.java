@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- *
+ * A maze generator class
  * @author popalmu
  */
 public class MazeGenerator {
@@ -17,6 +17,13 @@ public class MazeGenerator {
     private int height;
     private int[][] maze;
 
+    /**
+     * Creates  new maze
+     * 
+     * @param height height of the new maze
+     * @param width width of the new maze
+     * @return Newly created maze object
+     */
     public Maze generateMaze(int height, int width) {
         if (height < 10 | width < 10 | height > 100 | width > 100) {
             return null;
@@ -31,6 +38,11 @@ public class MazeGenerator {
         return new Maze(createMazeToSolve(this.maze));
     }
 
+    /**
+     * Internal method that recursively go through maze array and create walls
+     * @param cy y position
+     * @param cx x position
+     */
     private void generate(int cy, int cx) {
         Direction[] dirs = Direction.values();
         Collections.shuffle(Arrays.asList(dirs));
@@ -51,6 +63,11 @@ public class MazeGenerator {
         return (v >= 0) && (v < upper);
     }
 
+    /**
+     * Internal method transform a int array maze into Cell array
+     * @param maze 2-d int array
+     * @return 2-d Cell array
+     */
     private Cell[][] createMazeToSolve(int[][] maze) {
 
         Cell[][] newMaze = new Cell[maze.length][maze[0].length];

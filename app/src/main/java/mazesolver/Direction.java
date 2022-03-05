@@ -5,7 +5,8 @@
 package mazesolver;
 
 /**
- *
+ * Enumerate of direction
+ * 
  * @author popalmu
  */
 public enum Direction {

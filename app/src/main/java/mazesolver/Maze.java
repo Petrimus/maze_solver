@@ -1,20 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package mazesolver;
 
-/**
- * Representation of the maze.
+ /** Class holds information about a maze
  * <p>
  * This class is the maze</p>
  *
  * @author Petri Palmu
- */
-package mazesolver;
-
-/**
- *
- * @author popalmu
  */
 public class Maze {
 
@@ -22,6 +12,10 @@ public class Maze {
     private long solveTime = 0;
     private boolean solved = false;
 
+    /**
+     * Constructs and initialize Maze
+     * @param maze 2-d Cell array
+     */
     public Maze(Cell[][] maze) {
         this.maze = maze;
     }

@@ -7,7 +7,7 @@ package mazesolver;
 import static mazesolver.Utils.copyMazeArr;
 
 /**
- *
+ * Provides methods to recursive solve a given maze
  * @author popalmu
  */
 public class RecursiveSolve {
@@ -21,13 +21,11 @@ public class RecursiveSolve {
     private final int startY = 0;
 
     /**
-     * Class provides recursive way to a solve maze.
-     * <p>
-     * Recursive maze solver class</p>
-     *
+     * A method that solves a maze
+     * 
      * @author Petri Palmu
-     * @param referenceMaze
-     * @return Maze
+     * @param referenceMaze a maze to be solved
+     * @return Maze deep and solved copy of the maze given as parameter
      */
     public Maze solve(Maze referenceMaze) {
         this.height = referenceMaze.getMazeHeight();
