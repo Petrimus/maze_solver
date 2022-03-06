@@ -21,4 +21,19 @@ public class Utils {
         }
         return arr;
     }
+    
+    public static Maze deepCopyMaze(Maze maze) {
+          Cell[][] refMaze = maze.getMazeArray();
+          int height = refMaze.length;    
+          int width = refMaze[0].length;
+          Cell[][] arr = new Cell[height][width];
+          
+          for (int y=0; y<height; y++) {
+              for (int x=0; x<width; x++) {
+                  arr[y][x] = (Cell) refMaze[y][x].clone();
+              }
+          }
+          
+        return new Maze(arr);
+    }
 }

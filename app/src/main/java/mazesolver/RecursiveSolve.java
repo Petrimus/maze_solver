@@ -4,48 +4,43 @@
  */
 package mazesolver;
 
-import static mazesolver.Utils.copyMazeArr;
+import static mazesolver.Utils.*;
 
 /**
  * Provides methods to recursive solve a given maze
+ *
  * @author popalmu
  */
 public class RecursiveSolve {
 
-    private int height = 0;
-    private int width;
-    private Cell[][] mazeArr;
-    private Maze maze;
     private boolean[][] visited;
-    private final int startX = 0;
-    private final int startY = 0;
 
     /**
      * A method that solves a maze
-     * 
+     *
      * @author Petri Palmu
      * @param referenceMaze a maze to be solved
      * @return Maze deep and solved copy of the maze given as parameter
      */
     public Maze solve(Maze referenceMaze) {
-        this.height = referenceMaze.getMazeHeight();
-        this.width = referenceMaze.getMazeLength();
+        int height = referenceMaze.getMazeHeight();
+        int width = referenceMaze.getMazeLength();
         this.visited = new boolean[height][width];
-        this.maze = new Maze(copyMazeArr(referenceMaze));
-        this.mazeArr = this.maze.getMazeArray();
-        
+        Maze maze = deepCopyMaze(referenceMaze);
+        Cell[][] mazeArr = maze.getMazeArray();
+
         long startTime = System.nanoTime();
-        boolean solved = recursiveSolve(this.startY, this.startX);
+        boolean solved = recursiveSolve(mazeArr, 0, 0);
         long endTime = System.nanoTime();
-        this.maze.setSolveTime(endTime - startTime);
-        this.maze.setSolved(solved);
-        return this.maze;
+        maze.setSolveTime(endTime - startTime);
+        maze.setSolved(solved);
+
+        return maze;
     }
 
-    
-    private boolean recursiveSolve(int y, int x) {
-        Cell cell = this.mazeArr[y][x];
-        if (y == height - 1 && x == width - 1) {
+    private boolean recursiveSolve(Cell[][] mazeArr, int y, int x) {
+        Cell cell = mazeArr[y][x];
+        if (y == mazeArr.length - 1 && x == mazeArr[0].length - 1) {
             return true;
         }
         if (visited[y][x]) {
@@ -55,28 +50,28 @@ public class RecursiveSolve {
         visited[y][x] = true;
 
         if (cell.isNorth()) {
-            if (recursiveSolve(y - 1, x)) {
+            if (recursiveSolve(mazeArr, y - 1, x)) {
                 cell.setOnThePath(true);
                 return true;
             }
         }
 
         if (cell.isSouth()) {
-            if (recursiveSolve(y + 1, x)) {
+            if (recursiveSolve(mazeArr, y + 1, x)) {
                 cell.setOnThePath(true);
                 return true;
             }
         }
 
         if (cell.isEast()) {
-            if (recursiveSolve(y, x + 1)) {
+            if (recursiveSolve(mazeArr, y, x + 1)) {
                 cell.setOnThePath(true);
                 return true;
             }
         }
 
         if (cell.isWest()) {
-            if (recursiveSolve(y, x - 1)) {
+            if (recursiveSolve(mazeArr, y, x - 1)) {
                 cell.setOnThePath(true);
                 return true;
             }
@@ -85,7 +80,4 @@ public class RecursiveSolve {
         return false;
     }
 
-    public int getHeight() {
-        return this.height;
-    }
 }

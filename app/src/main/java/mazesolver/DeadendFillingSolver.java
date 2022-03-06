@@ -8,7 +8,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
-import static mazesolver.Utils.copyMazeArr;
+import static mazesolver.Utils.*;
 
 /**
  * A class that solves a given maze with dead end filling-algorithm
@@ -26,10 +26,10 @@ public class DeadendFillingSolver {
      * Will block all the dead ends and return a new Maze with the correct path
      *
      * @param referenceMaze a maze that is to be resolved
-     * @return A new maze where all the dead ends are blocked
+     * @return A new maze where all the dead ends are blocked    
      */
     public Maze solve(Maze referenceMaze) {
-        this.maze = new Maze(copyMazeArr(referenceMaze));
+        this.maze = deepCopyMaze(referenceMaze);
         this.mazeArr = this.maze.getMazeArray();
         this.height = mazeArr.length;
         this.width = mazeArr[0].length;

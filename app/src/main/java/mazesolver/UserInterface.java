@@ -72,7 +72,6 @@ public class UserInterface {
                         System.out.println("solved");
                         recSolveMaze.drawMaze();
                         System.out.println("");
-
                         System.out.println("Time it took to solve was " + df.format(recSolveMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
                     } else {
                         System.out.println("Tämä labyrintti oli aivan liian vaikea tai mahdoton minulle");
