@@ -4,11 +4,13 @@
  */
 package mazesolver;
 
-import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.junit.Test;
 
 /**
@@ -17,8 +19,8 @@ import org.junit.Test;
  */
 public class MazeGeneratorTest {
 
-    MazeGenerator generator = new MazeGenerator();
-    Maze maze = generator.generateMaze(10, 12);
+    private final MazeGenerator generator = new MazeGenerator();
+    private final Maze maze = generator.generateMaze(10, 12);
 
     @Test
     public void mazeIsCreated() {
@@ -63,10 +65,10 @@ public class MazeGeneratorTest {
 
     @Test
     public void mazeHasToBeWithinLimits() {
-         Maze one = generator.generateMaze(5, 12);
-          Maze two = generator.generateMaze(10, 125);
-          
-         assertNull("Verify that object is null", one);
-         assertNull("Verify that object is null", two);
+        Maze one = generator.generateMaze(5, 12);
+        Maze two = generator.generateMaze(10, 125);
+
+        assertNull("Verify that object is null", one);
+        assertNull("Verify that object is null", two);
     }
 }

@@ -4,11 +4,12 @@
  */
 package mazesolver;
 
+import static mazesolver.Utils.deepCopyMaze;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
-import static mazesolver.Utils.*;
 
 /**
  * A class that solves a given maze with dead end filling-algorithm
@@ -26,7 +27,7 @@ public class DeadendFillingSolver {
      * Will block all the dead ends and return a new Maze with the correct path
      *
      * @param referenceMaze a maze that is to be resolved
-     * @return A new maze where all the dead ends are blocked    
+     * @return A new maze where all the dead ends are blocked
      */
     public Maze solve(Maze referenceMaze) {
         this.maze = deepCopyMaze(referenceMaze);
@@ -39,9 +40,9 @@ public class DeadendFillingSolver {
         for (int y = 0; y < this.height; y++) {
             for (int x = 0; x < this.width; x++) {
                 Cell cell = mazeArr[y][x];
-                if ((cell.getPossibleDirections().size() == 1) && (y != height - 1 || x != width - 1) && (y != 0 || x != 0)) {
+                if ((cell.getPossibleDirections().size() == 1) && (y != height - 1
+                        || x != width - 1) && (y != 0 || x != 0)) {
                     deadends.add(cell);
-                    // System.out.println("cell: " + cell);
                 }
             }
         }

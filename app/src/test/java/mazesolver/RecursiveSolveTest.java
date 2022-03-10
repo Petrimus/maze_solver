@@ -6,7 +6,9 @@ package mazesolver;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
 import org.junit.BeforeClass;
+
 import org.junit.Test;
 
 /**
@@ -34,10 +36,11 @@ public class RecursiveSolveTest {
         maze = new Maze(mazeArr);
         recSolve = new RecursiveSolve();
     }
+
     @Test
     public void solveMethodReturnsObject() {
-         Maze testMaze = RecursiveSolveTest.recSolve.solve(RecursiveSolveTest.maze);
-          assertNotNull("Verify that thing is NOT null", testMaze);
+        Maze testMaze = RecursiveSolveTest.recSolve.solve(RecursiveSolveTest.maze);
+        assertNotNull("Verify that thing is NOT null", testMaze);
     }
 
     @Test

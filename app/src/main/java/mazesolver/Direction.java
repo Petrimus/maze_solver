@@ -6,7 +6,7 @@ package mazesolver;
 
 /**
  * Enumerate of direction
- * 
+ *
  * @author popalmu
  */
 public enum Direction {
@@ -56,7 +56,7 @@ public enum Direction {
     public int getDx() {
         return dx;
     }
-    
+
     public String getDirString() {
         return this.dir;
     }
@@ -67,5 +67,5 @@ public enum Direction {
     public Direction getOpposite() {
         return opposite;
     }
-    
+
 };

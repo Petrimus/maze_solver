@@ -9,6 +9,7 @@ import java.util.Collections;
 
 /**
  * A maze generator class
+ *
  * @author popalmu
  */
 public class MazeGenerator {
@@ -18,8 +19,8 @@ public class MazeGenerator {
     private int[][] maze;
 
     /**
-     * Creates  new maze
-     * 
+     * Creates new maze
+     *
      * @param height height of the new maze
      * @param width width of the new maze
      * @return Newly created maze object
@@ -40,6 +41,7 @@ public class MazeGenerator {
 
     /**
      * Internal method that recursively go through maze array and create walls
+     *
      * @param cy y position
      * @param cx x position
      */
@@ -65,6 +67,7 @@ public class MazeGenerator {
 
     /**
      * Internal method transform a int array maze into Cell array
+     *
      * @param maze 2-d int array
      * @return 2-d Cell array
      */

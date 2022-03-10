@@ -9,5 +9,5 @@ package mazesolver;
  * @author popalmu
  */
 public class DeadendFillingSolverTest {
-    
+
 }

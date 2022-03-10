@@ -5,18 +5,26 @@ package mazesolver;
 
 import java.util.Scanner;
 
-/** 
+/**
+ * Main class with main method
+ *
  * @author Petri Palmu
  */
 public class App {
+
     public String getGreeting() {
         return "Hello World!";
     }
 
+    /**
+     * Main method
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         UserInterface ui = new UserInterface(reader);
-        
+
         ui.start();
         System.out.println(new App().getGreeting());
     }

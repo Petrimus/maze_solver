@@ -4,7 +4,7 @@
  */
 package mazesolver;
 
-import static mazesolver.Utils.*;
+import static mazesolver.Utils.deepCopyMaze;
 
 /**
  * Provides methods to recursive solve a given maze

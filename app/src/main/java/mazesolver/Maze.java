@@ -1,8 +1,7 @@
 package mazesolver;
 
- /** Class holds information about a maze
- * <p>
- * This class is the maze</p>
+/**
+ * Class holds information about a maze
  *
  * @author Petri Palmu
  */
@@ -14,14 +13,18 @@ public class Maze {
 
     /**
      * Constructs and initialize Maze
+     *
      * @param maze 2-d Cell array
      */
     public Maze(Cell[][] maze) {
         this.maze = maze;
     }
 
+    /**
+     * Prints a maze to the console
+     */
     public void drawMaze() {
-        
+
         int height = maze.length;
         int width = maze[0].length;
         // System.out.println("+   ");
@@ -49,12 +52,11 @@ public class Maze {
         }
         System.out.println("+");
     }
-    
 
     public Cell[][] getMazeArray() {
         return this.maze;
     }
-    
+
     public long getSolveTime() {
         return this.solveTime;
     }
@@ -69,14 +71,6 @@ public class Maze {
 
     public Cell getCell(int y, int x) {
         return this.maze[y][x];
-    }
-    
-    public void printMazeArray() {
-         for (int y = 0; y < this.maze.length; y++) {
-            for (int x = 0; x < this.maze[0].length; x++) {
-                System.out.println(this.maze[y][x]); 
-            }
-            }
     }
 
     /**

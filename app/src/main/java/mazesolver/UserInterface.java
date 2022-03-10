@@ -13,16 +13,25 @@ import java.util.Scanner;
  */
 public class UserInterface {
 
+    private static final DecimalFormat df = new DecimalFormat("0.00");
+
     private final Scanner reader;
     private Maze maze;
     private final MazeGenerator generator = new MazeGenerator();
-    private static final DecimalFormat df = new DecimalFormat("0.00");
 
+    /**
+     * Construct and initialize user interface
+     *
+     * @param reader
+     */
     public UserInterface(Scanner reader) {
         this.maze = generator.generateMaze(10, 10);
         this.reader = reader;
     }
 
+    /**
+     * UI start method. Executes in loop.
+     */
     public void start() {
         RecursiveSolve recSolve = new RecursiveSolve();
         DeadendFillingSolver deadendSolver = new DeadendFillingSolver();
@@ -72,7 +81,8 @@ public class UserInterface {
                         System.out.println("solved");
                         recSolveMaze.drawMaze();
                         System.out.println("");
-                        System.out.println("Time it took to solve was " + df.format(recSolveMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
+                        System.out.println("Time it took to solve was "
+                                + df.format(recSolveMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
                     } else {
                         System.out.println("Tämä labyrintti oli aivan liian vaikea tai mahdoton minulle");
                     }
@@ -83,7 +93,8 @@ public class UserInterface {
                     Maze solvedMaze = deadendSolver.solve(this.maze);
                     solvedMaze.drawMaze();
                     System.out.println("");
-                    System.out.println("Time it took to solve was " + df.format(solvedMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
+                    System.out.println("Time it took to solve was "
+                            + df.format(solvedMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
                     System.out.println("");
                     break;
 
