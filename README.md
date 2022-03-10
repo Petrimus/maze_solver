@@ -6,4 +6,5 @@ This program is going to be a maze solver. It will generate ascii mazes and find
 
 
 ## Commands
-- './gradlew check' execute checstyle 
+- ```./gradlew check``` execute checstyle
+- ```./gradlew run``` execute code 

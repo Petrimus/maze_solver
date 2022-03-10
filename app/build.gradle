@@ -10,7 +10,8 @@ plugins {
 
 repositories {
     // Use jcenter for resolving your dependencies.    
-    jcenter()
+    // jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -52,8 +53,8 @@ jacoco {
 
 jacocoTestReport {
     reports {
-        xml.required = false
-        csv.required = false
+        xml.required = true
+        html.required = true
         html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
 }
