@@ -21,9 +21,9 @@ Testataan rekursiivista ratkaisualgoritmia valmiilla etukäteen luotavalla labyr
 - Testaan, että ratkaisualgoritmi palauttaa oikean ratkaistun labyrintin.
 
 ## DeadendFillingSolver
-
-- 
-
+- Testataan, että labyrintti ratkaiseminen onnistuu.
+- Testataan, että palautuva Maze-olio on oikeanlainen.
+- Testaan, että ratkaisualgoritmi palauttaa oikean ratkaistun labyrintin.
 
 ## Suorituskykytestaus
 Ohjelman algoritmeja testattiin empiirisesti erilaisilla labyrinteilla. Labyrinttien leveys ja korkeus olivat samat. Testattavien labyrinttien koot olivat 10, 50 100, 150 ja 200. Tämän suurempaan ei ikävä kyllä päästy, koska labyrinttigeneraattorin algoritmi aiheutti ylivuotoongelman, johon ei käytettävissä olevassa ajassa löytynyt ratkaisua. Tulokset olivat seuraavanlaiset:

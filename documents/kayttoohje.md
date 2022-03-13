@@ -7,5 +7,9 @@ Toinen vaihtoehto ja visuaalisesti miellyttävämpi on ajaa ensin build komennol
 ```java -jar app/build/libs/app.jar```.
 
 ## Ohjelman toiminta
-Ohjelman toiminta on yksinkertainen ja se selviää yksinkertaisesta tekstipohjaisesta käyttöliittymästä. Valittavana on seitsemän toiminta, jotka selittävät melko hyvin itsensä.
+Ohjelman toiminta on yksinkertainen ja se selviää yksinkertaisesta tekstipohjaisesta käyttöliittymästä. Valittavana on seitsemän toiminta, jotka selittävät melko hyvin itsensä. Vaihtoehto 6 suorittaa molemmat algoritmit samalla kerralla ja tulostaa niihin käytetyn ajan. 
+
+## Testaus
+Testit ja Jacoco raportit saa ajettua komennoilla
+```./gradlew test``` ja ```./gradlew jacocoTestReport```
 
