@@ -50,8 +50,8 @@ public class UserInterface {
             System.out.println("3 - piirrä labyrintti");
             System.out.println("4 - ratkaise labyrintti rekursiivisesti");
             System.out.println("5 - ratkaise labyrintti deadend-filling algoritmilla");
-
-            System.out.println("6 - lopeta");
+            System.out.println("6 - ratkaise molemmilla algoritmeilla ja näytä ajat, tulostusta");
+            System.out.println("7 - lopeta");
 
             if (reader.hasNextInt()) {
                 command = reader.nextInt();
@@ -97,8 +97,19 @@ public class UserInterface {
                             + df.format(solvedMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
                     System.out.println("");
                     break;
-
+                
                 case 6:
+                    Maze deadMaze = deadendSolver.solve(this.maze);
+                    Maze recMaze = recSolve.solve(this.maze);
+                    System.out.println("");
+                    System.out.println("Time it took to solve maze recursively was "
+                            + df.format(recMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
+                    System.out.println("Time it took to solve maze with deadend-filling was "
+                            + df.format(deadMaze.getSolveTime() / 1e9 * 1000) + " milliseconds");
+                    System.out.println("");
+                    break;
+
+                case 7:
                     break OUTER;
 
                 default:
@@ -116,12 +127,12 @@ public class UserInterface {
             if (reader.hasNextInt()) {
                 width = reader.nextInt();
                 if (width < 10 | width > 100) {
-                    System.out.println("Pitää olla numero välillä 10-100");
+                    System.out.println("Pitää olla numero välillä 100");
                     continue;
                 }
                 break;
             } else {
-                System.out.println("Pitää olla numero välillä 10-100");
+                System.out.println("Pitää olla numero välillä 100");
             }
         }
         // System.out.println("");
