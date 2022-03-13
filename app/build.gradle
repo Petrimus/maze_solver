@@ -1,8 +1,6 @@
 
-plugins {
-    // Apply the java plugin to add support for Java
-    id 'java'
-    // Apply the application plugin to add support for building a CLI application in Java.
+plugins {    
+    id 'java'    
     id 'application'
     id 'jacoco'
     id 'checkstyle'
@@ -34,8 +32,13 @@ test {
 jacocoTestReport {
     // tests are required to run before generating the report
     dependsOn test 
-}
 
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['mazesolver/App.class','mazesolver/UserInterface.class', 'mazesolver/Maze.class'])
+        }))
+    }
+}
 
 run {
     standardInput = System.in
@@ -56,6 +59,14 @@ jacocoTestReport {
         xml.required = true
         html.required = true
         html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'mazesolver.App'
+        )
     }
 }
 

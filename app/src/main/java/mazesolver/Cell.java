@@ -147,16 +147,6 @@ public class Cell {
         return onThePath;
     }
 
-    @Override
-    public String toString() {
-        char northx = this.isNorth() ? 't' : 'f';
-        char southx = this.isSouth() ? 't' : 'f';
-        char westx = this.isWest() ? 't' : 'f';
-        char eastx = this.isEast() ? 't' : 'f';
-
-        return "y: " + this.y + " x: " + this.x + " " + northx + southx + westx + eastx;
-    }
-
     /**
      * @return the y
      */
@@ -171,6 +161,10 @@ public class Cell {
         return x;
     }
 
+    /**
+     * 
+     * @return
+     */
     @Override
     public Object clone() {
         Cell cell;

@@ -68,7 +68,7 @@ public class DeadendFillingSolver {
     private void clearPath(int py, int px, Direction dir) {
         int cy = py + dir.getDy();
         int cx = px + dir.getDx();
-
+                
         if (isValid(cy, height) && isValid(cx, width)) {
             Cell prevCell = this.mazeArr[py][px];
             Cell currCell = this.mazeArr[cy][cx];

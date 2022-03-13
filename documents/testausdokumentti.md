@@ -1,5 +1,5 @@
 # Testausdokumentti
-Testauksessa on keskitytty yksikkötesteihin, joita seurataan Jacocon avulla. Ohjelman toiminnallisia luokkia ovat MazeGenerator, RecursiveSolve ja DeadendFillingSolver. Näiden oikea toiminta on pyritty testeillä varmistamaan.
+Testauksessa on keskitytty yksikkötesteihin, joita seurataan Jacocon avulla. Ohjelman toiminnallisia luokkia ovat MazeGenerator, RecursiveSolve ja DeadendFillingSolver. Näiden oikea toiminta on pyritty testeillä varmistamaan. Jacoco testausraportit löytyvät 
 
 ## Yksikkötestit
 
@@ -13,7 +13,28 @@ Testeissä generoidaan uusi labyrintti ja generoidulle labyrintille suoritetaan 
 
 
 ### RecursiveSolve
-Testataan rekursiivista ratkaisualgoritmia valmiilla etukäteen luotavalla labyrintillä.
-- Testataan, että labyrintti ratkaiseminen onnistuu ja että ratkaisualgoritmi palauttaa oikean ratkaistun labyrintin.
+Testataan rekursiivista ratkaisualgoritmia valmiilla etukäteen luotavalla labyrintillä, jonka oikeellisuus on paperilla varmistettu.
+
+- Testataan, että palauttaa ei tyhjän olion.
+- Testataan, että labyrintti ratkaiseminen onnistuu.
+- Testataan, että palautuva Maze-olio on oikeanlainen.
+- Testaan, että ratkaisualgoritmi palauttaa oikean ratkaistun labyrintin.
+
+## DeadendFillingSolver
+
+- 
+
+
+## Suorituskykytestaus
+Ohjelman algoritmeja testattiin empiirisesti erilaisilla labyrinteilla. Labyrinttien leveys ja korkeus olivat samat. Testattavien labyrinttien koot olivat 10, 50 100, 150 ja 200. Tämän suurempaan ei ikävä kyllä päästy, koska labyrinttigeneraattorin algoritmi aiheutti ylivuotoongelman, johon ei käytettävissä olevassa ajassa löytynyt ratkaisua. Tulokset olivat seuraavanlaiset:
+
+![suoritustestaus](/documents/kuvat/performance.png)
+
+Tulokset olivat linjassa oletusten kanssa, että aikavaatimus kasvaa lineaarisesti labyrintin koon kasvaessa eli että algoritmit toimivat O(n) ajassa.
+
+## Testikattavuus
+
+![testikattavuus](/documents/kuvat/testcoverage.png)
+
 
 

@@ -26,12 +26,12 @@ public class RecursiveSolveTest {
         mazeArr[0][0] = new Cell(0, 0, false, true, false, false);
         mazeArr[0][1] = new Cell(0, 1, false, false, false, true);
         mazeArr[0][2] = new Cell(0, 2, false, true, true, false);
-        mazeArr[1][0] = new Cell(1, 0, true, true, false, true);
-        mazeArr[1][1] = new Cell(1, 1, false, false, true, true);
-        mazeArr[1][2] = new Cell(1, 2, true, false, true, false);
+        mazeArr[1][0] = new Cell(1, 0, true, true, false, false);
+        mazeArr[1][1] = new Cell(1, 1, false, true, false, true);
+        mazeArr[1][2] = new Cell(1, 2, true, true, true, false);
         mazeArr[2][0] = new Cell(2, 0, true, false, false, true);
-        mazeArr[2][1] = new Cell(2, 1, false, false, true, true);
-        mazeArr[2][2] = new Cell(2, 2, false, false, true, false);
+        mazeArr[2][1] = new Cell(2, 1, true, false, true, false);
+        mazeArr[2][2] = new Cell(2, 2, true, false, false, false);
 
         maze = new Maze(mazeArr);
         recSolve = new RecursiveSolve();
@@ -60,7 +60,9 @@ public class RecursiveSolveTest {
         assertEquals(mazeArr[1][0].isOnThePath(), true);
         assertEquals(mazeArr[0][0].isOnThePath(), true);
         assertEquals(mazeArr[2][0].isOnThePath(), true);
-        assertEquals(mazeArr[2][1].isOnThePath(), true);
+        assertEquals(mazeArr[2][1].isOnThePath(), true);        
+        
     }
-
+    
+   
 }
