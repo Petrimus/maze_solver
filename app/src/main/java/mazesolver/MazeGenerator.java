@@ -6,6 +6,7 @@ package mazesolver;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * A maze generator class
@@ -33,9 +34,14 @@ public class MazeGenerator {
         this.height = height;
         this.maze = new int[height][width];
         maze[height - 1][width - 1] = 8;
-        generate(0, 0);
+        Direction[] dirs = Direction.values();
+        List<Direction> list = Arrays.asList(dirs);
+        generate(0, 0, list);
         maze[height - 1][width - 2] |= 4;
-        // printMazeArray();
+        Cell[][] resultMaze = createMazeToSolve(this.maze);
+        resultMaze[0][0].setOnThePath(true);
+        resultMaze[height - 1][width - 1].setOnThePath(true);
+
         return new Maze(createMazeToSolve(this.maze));
     }
 
@@ -45,9 +51,9 @@ public class MazeGenerator {
      * @param cy y position
      * @param cx x position
      */
-    private void generate(int cy, int cx) {
-        Direction[] dirs = Direction.values();
-        Collections.shuffle(Arrays.asList(dirs));
+    private void generate(int cy, int cx, List<Direction> dirs) {
+        
+        Collections.shuffle(dirs);
         for (Direction dir : dirs) {
             int nx = cx + dir.getDx();
             int ny = cy + dir.getDy();
@@ -56,8 +62,8 @@ public class MazeGenerator {
                 this.maze[ny][nx] |= dir.getOpposite().getBit();
                 this.maze[cy][cx] |= dir.getBit();
 
-                generate(ny, nx);
-            }
+                generate(ny, nx, dirs);
+            } 
         }
     }
 

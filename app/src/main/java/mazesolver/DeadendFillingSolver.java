@@ -52,10 +52,7 @@ public class DeadendFillingSolver {
             Direction dir = cell.getPossibleDirections().get(0);
             clearPath(cell.getY(), cell.getX(), dir);
         }
-        long endTime = System.nanoTime();
-        System.out.println("start time " + startTime);
-        System.out.println("end time " + endTime);
-        System.out.println("time " + ((endTime - startTime) / 1e9 * 1000));
+        long endTime = System.nanoTime();        
         this.maze.setSolveTime(endTime - startTime);
         return this.maze;
     }
