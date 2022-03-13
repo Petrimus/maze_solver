@@ -18,4 +18,8 @@ Ohjelman luokat:
 ## Ohjelman aikavaatimukset
 Ohjelma toimii teoriatasolla sekä empiirisen testaamisen jälkeen O(n) ajassa. Ohjelman ratkaisuihin käyttämä aika siis kasvaa lineaarisesti labyrintin koon kasvaessa. Labyrintti on toteutettu kaksi-dimensioisella taulukolla, joten sen koko kasvaa kahden potesseina. Ohjelman suoritusaikaa on testattu empiirisesti, mutta ongelma oli, että se toimii 200 x 200 taulukkoon asti, jonka jälkeen se kaatuu stackoverflow virheeseen. En onnistunut tätä parin päivän työllä korjaamaan enkä tiedä onko se ohjelman vai pinoon allokoidun tallennustilan ongelma. Tässä vaiheessa taulukko sisältää kuitenkin jo 40K solua.
 
+<<<<<<< HEAD
 [suorituskykyanalyysi](/documents/kuvat/performance.png)
+=======
+[suorituskykyanalyysi](documents/kuvat/performance.png)
+>>>>>>> 8e622e07a7f91ccf6a7190833f6308a1efe7c767
