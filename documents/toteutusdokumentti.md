@@ -24,3 +24,6 @@ Testus noudattaa oletettua kulkua. Mielenkiintoinen yksityiskohta on se, että r
 
 ## Parannusehdotukset
 Työssä on labyrinttien generoimisessa käytetty bittioperaatiota, jotka toimivat kohtalaisen hyvin, mutta sen jälkeen on palattu käyttämään Cell-olioihin, joiden avulla mallinnetaan yhtä solua. Olisi toki tehokkaampaa käsitellä koko ajan pelkästään primitiiejä. Iso parannuskohde olisi myös selvittää, miksi ohjelma kaatuu, kun labyrintin koko ylittää 200 x 200 ruutua. Se aiheuttaa stackoverflow virheen, mutta taulukko ei kuitenkaan tunnu kovin isolta. Epäilen virheen löytyvän koodistani, mutta korjausyritukseni eivät tuottaneet mainittavaa parannusta.
+
+## Lähteet
+- Maze-solving algorithm (Wikipedia). Haettu 23.1.2022: [maze-solving algorithm](https://en.wikipedia.org/wiki/Maze-solving_algorithm)
